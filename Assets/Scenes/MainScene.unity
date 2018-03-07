@@ -312,7 +312,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &67043184
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1249,14 +1249,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   youthNavbar: {fileID: 774652382}
   youthMainPanels:
-  - {fileID: 1217452969}
-  - {fileID: 67043183}
-  - {fileID: 1687856650}
-  - {fileID: 525301638}
+  - {fileID: 1217452970}
+  - {fileID: 67043184}
+  - {fileID: 1687856651}
+  - {fileID: 525301639}
   challengerNavbar: {fileID: 62794618}
-  challengerMainPanels: []
+  challengerMainPanels:
+  - {fileID: 1604183685}
+  - {fileID: 1862264665}
   adminNavbar: {fileID: 1994676372}
-  adminMainPanels: []
+  adminMainPanels:
+  - {fileID: 2042212411}
+  - {fileID: 73021140}
+  - {fileID: 884764860}
+  - {fileID: 1287375565}
   title: {fileID: 368062230}
   loginScreen: {fileID: 1958986579}
 --- !u!95 &495991893
@@ -1292,7 +1298,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &525301639
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2805,7 +2811,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1217452970
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4015,7 +4021,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1687856651
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4589,7 +4595,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1958986580
 RectTransform:
   m_ObjectHideFlags: 0
