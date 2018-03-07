@@ -312,7 +312,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &67043184
 RectTransform:
   m_ObjectHideFlags: 0
@@ -327,8 +327,8 @@ RectTransform:
   m_Father: {fileID: 495991891}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.12}
-  m_AnchorMax: {x: 1, y: 0.88}
+  m_AnchorMin: {x: 1, y: 0.12}
+  m_AnchorMax: {x: 2, y: 0.88}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -396,8 +396,8 @@ RectTransform:
   m_Father: {fileID: 495991891}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.12}
-  m_AnchorMax: {x: 1, y: 0.88}
+  m_AnchorMin: {x: 1, y: 0.12}
+  m_AnchorMax: {x: 2, y: 0.88}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -483,8 +483,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 047df4fc9c50d54489bc906de0b45018, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panel: {fileID: 884764859}
   mainCanvas: {fileID: 495991892}
+  accountType: 2
+  panelNumber: 2
   titleMessage: Activity Feed
 --- !u!114 &212130798
 MonoBehaviour:
@@ -620,8 +621,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 047df4fc9c50d54489bc906de0b45018, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panel: {fileID: 1604183684}
   mainCanvas: {fileID: 495991892}
+  accountType: 1
+  panelNumber: 0
   titleMessage: My Challenges
 --- !u!114 &270123639
 MonoBehaviour:
@@ -1138,6 +1140,7 @@ GameObject:
   - component: {fileID: 495991889}
   - component: {fileID: 495991888}
   - component: {fileID: 495991892}
+  - component: {fileID: 495991893}
   m_Layer: 5
   m_Name: MainCanvas
   m_TagString: Untagged
@@ -1245,9 +1248,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   youthNavbar: {fileID: 774652382}
+  youthMainPanels:
+  - {fileID: 1217452969}
+  - {fileID: 67043183}
+  - {fileID: 1687856650}
+  - {fileID: 525301638}
   challengerNavbar: {fileID: 62794618}
+  challengerMainPanels: []
   adminNavbar: {fileID: 1994676372}
+  adminMainPanels: []
   title: {fileID: 368062230}
+  loginScreen: {fileID: 1958986579}
+--- !u!95 &495991893
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 495991887}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a9baac0246a3ff64db0308d4b9a57eb9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &525301638
 GameObject:
   m_ObjectHideFlags: 0
@@ -1264,7 +1292,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &525301639
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1279,8 +1307,8 @@ RectTransform:
   m_Father: {fileID: 495991891}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.12}
-  m_AnchorMax: {x: 1, y: 0.88}
+  m_AnchorMin: {x: 3, y: 0.12}
+  m_AnchorMax: {x: 4, y: 0.88}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1366,8 +1394,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 047df4fc9c50d54489bc906de0b45018, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panel: {fileID: 1687856650}
   mainCanvas: {fileID: 495991892}
+  accountType: 0
+  panelNumber: 2
   titleMessage: Rewards
 --- !u!114 &641942112
 MonoBehaviour:
@@ -1891,8 +1920,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 047df4fc9c50d54489bc906de0b45018, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panel: {fileID: 1287375564}
   mainCanvas: {fileID: 495991892}
+  accountType: 2
+  panelNumber: 3
   titleMessage: User Accounts
 --- !u!114 &809582841
 MonoBehaviour:
@@ -2084,8 +2114,8 @@ RectTransform:
   m_Father: {fileID: 495991891}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.12}
-  m_AnchorMax: {x: 1, y: 0.88}
+  m_AnchorMin: {x: 2, y: 0.12}
+  m_AnchorMax: {x: 3, y: 0.88}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2522,8 +2552,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 047df4fc9c50d54489bc906de0b45018, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panel: {fileID: 2042212410}
   mainCanvas: {fileID: 495991892}
+  accountType: 2
+  panelNumber: 0
   titleMessage: Challenge Feed
 --- !u!114 &1043504732
 MonoBehaviour:
@@ -2774,7 +2805,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1217452970
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2929,8 +2960,8 @@ RectTransform:
   m_Father: {fileID: 495991891}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.12}
-  m_AnchorMax: {x: 1, y: 0.88}
+  m_AnchorMin: {x: 3, y: 0.12}
+  m_AnchorMax: {x: 4, y: 0.88}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3238,8 +3269,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 047df4fc9c50d54489bc906de0b45018, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panel: {fileID: 73021139}
   mainCanvas: {fileID: 495991892}
+  accountType: 2
+  panelNumber: 1
   titleMessage: Rewards
 --- !u!114 &1436042433
 MonoBehaviour:
@@ -3449,8 +3481,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 047df4fc9c50d54489bc906de0b45018, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panel: {fileID: 525301638}
   mainCanvas: {fileID: 495991892}
+  accountType: 0
+  panelNumber: 3
   titleMessage: My Profile
 --- !u!114 &1591273064
 MonoBehaviour:
@@ -3586,8 +3619,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 047df4fc9c50d54489bc906de0b45018, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panel: {fileID: 1217452969}
   mainCanvas: {fileID: 495991892}
+  accountType: 0
+  panelNumber: 0
   titleMessage: Challenge Feed
 --- !u!114 &1601498857
 MonoBehaviour:
@@ -3981,7 +4015,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1687856651
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3996,8 +4030,8 @@ RectTransform:
   m_Father: {fileID: 495991891}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.12}
-  m_AnchorMax: {x: 1, y: 0.88}
+  m_AnchorMin: {x: 2, y: 0.12}
+  m_AnchorMax: {x: 3, y: 0.88}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4083,8 +4117,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 047df4fc9c50d54489bc906de0b45018, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panel: {fileID: 1862264664}
   mainCanvas: {fileID: 495991892}
+  accountType: 1
+  panelNumber: 1
   titleMessage: My Profile
 --- !u!114 &1845991773
 MonoBehaviour:
@@ -4202,8 +4237,8 @@ RectTransform:
   m_Father: {fileID: 495991891}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.12}
-  m_AnchorMax: {x: 1, y: 0.88}
+  m_AnchorMin: {x: 1, y: 0.12}
+  m_AnchorMax: {x: 2, y: 0.88}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4546,7 +4581,6 @@ GameObject:
   - component: {fileID: 1958986580}
   - component: {fileID: 1958986584}
   - component: {fileID: 1958986583}
-  - component: {fileID: 1958986582}
   - component: {fileID: 1958986581}
   - component: {fileID: 1958986585}
   m_Layer: 5
@@ -4555,7 +4589,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1958986580
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4589,17 +4623,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCanvas: {fileID: 495991892}
---- !u!114 &1958986582
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1958986579}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fd8c8a073bb2df40b1cdd851a2af39f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  animator: {fileID: 1958986585}
 --- !u!114 &1958986583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4642,7 +4666,7 @@ Animator:
   m_GameObject: {fileID: 1958986579}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2ccbc5e3121d101468caec5ccc08c1f5, type: 2}
+  m_Controller: {fileID: 9100000, guid: 978bc233a99832a4abc30c1436314328, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -4699,8 +4723,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 047df4fc9c50d54489bc906de0b45018, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panel: {fileID: 67043183}
   mainCanvas: {fileID: 495991892}
+  accountType: 0
+  panelNumber: 1
   titleMessage: My Challenges
 --- !u!114 &1987177731
 MonoBehaviour:

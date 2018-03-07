@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,22 +8,25 @@ using UnityEngine.UI;
 
 public class NavbarItem : MonoBehaviour
 {
-    [Header("Transition Settings")]
-    [SerializeField]
-    GameObject panel;
     [SerializeField]
     MainCanvas mainCanvas;
+
+    [Header("Transition Settings")]
+    [SerializeField]
+    AccountType accountType;
+    [SerializeField]
+    int panelNumber;
+
     [Header("Title Settings")]
     [SerializeField]
     string titleMessage;
 
     /// <summary>
-    /// Swaps the main display panel to this items panel
+    /// Called by the GameObjects button click event
+    /// Switches to the wanted panel
     /// </summary>
     public void Show()
     {
-        mainCanvas.HideAllPanels();
-        mainCanvas.SetTitle(titleMessage);
-        panel.SetActive(true);
+        mainCanvas.StartCoroutine(mainCanvas.ShowPanel(accountType, panelNumber, titleMessage));
     }
 }

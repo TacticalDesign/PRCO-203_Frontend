@@ -13,26 +13,42 @@ public class LoginScreen : MonoBehaviour
     [SerializeField]
     Animator animator;
 
+    /// <summary>
+    /// Login logic shared by all accounts
+    /// Runs after account-specific logic
+    /// </summary>
     private void Login()
     {
         animator.SetTrigger("Close");
     }
 
+    /// <summary>
+    /// Login logic specific to the youth account
+    /// Also includes a call to the generic login logic
+    /// </summary>
     public void YouthLogin()
     {
-        mainCanvas.ShowYouthNavbar();
+        mainCanvas.SetAccountType(AccountType.Youth);
         Login();
     }
 
+    /// <summary>
+    /// Login logic specific to the challenger account
+    /// Also includes a call to the generic login logic
+    /// </summary>
     public void ChallengerLogin()
     {
-        mainCanvas.ShowChallengerNavbar();
+        mainCanvas.SetAccountType(AccountType.Challenger);
         Login();
     }
 
+    /// <summary>
+    /// Login logic specific to the admin account
+    /// Also includes a call to the generic login logic
+    /// </summary>
     public void AdminLogin()
     {
-        mainCanvas.ShowAdminNavbar();
+        mainCanvas.SetAccountType(AccountType.Admin);
         Login();
     }
 }
