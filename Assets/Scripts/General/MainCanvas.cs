@@ -35,6 +35,12 @@ public class MainCanvas : MonoBehaviour
     [SerializeField]
     GameObject loginScreen;
 
+    [SerializeField]
+    float transitionSmoothness = 0.05f;
+
+    [SerializeField]
+    float transitionDuration = 0.3f;
+
     private void Start()
     {
         loginScreen.SetActive(true);
@@ -119,8 +125,8 @@ public class MainCanvas : MonoBehaviour
 
         float timeElapsed = 0;
 
-        float timeStep = 0.05f;//The length of coroutine frames in seconds
-        float duration = 0.3f;//Duration of coroutine in seconds
+        float timeStep = transitionSmoothness;//The length of coroutine frames in seconds
+        float duration = transitionDuration;//Duration of coroutine in seconds
         while (timeElapsed < duration)
         {
             //For each panel...
