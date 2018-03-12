@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
+using Newtonsoft.Json;
 
 public class MainCanvas : MonoBehaviour
 {
@@ -24,10 +25,15 @@ public class MainCanvas : MonoBehaviour
     [Header("Admin Accounts")]
     [SerializeField]
     GameObject adminNavbar;
+
     [SerializeField]
     RectTransform[] adminMainPanels;
 
-    [Header(" ")]
+    [Header("Shared Pages")]
+    [SerializeField]
+    Animator[] secondryPages;
+
+    [Header("Other Settings")]
 
     [SerializeField]
     Text title;
@@ -40,6 +46,9 @@ public class MainCanvas : MonoBehaviour
 
     [SerializeField]
     float transitionDuration = 0.3f;
+
+    [SerializeField]
+    float secondryPageHidingInterval;
 
     private void Start()
     {
@@ -124,11 +133,18 @@ public class MainCanvas : MonoBehaviour
         int distance = startingPoition - panel;
 
         float timeElapsed = 0;
+        int secondryPanelsHidden = 0;
 
         float timeStep = transitionSmoothness;//The length of coroutine frames in seconds
         float duration = transitionDuration;//Duration of coroutine in seconds
         while (timeElapsed < duration)
         {
+            if (secondryPanelsHidden < secondryPages.Length && timeElapsed > secondryPanelsHidden * secondryPageHidingInterval)
+            {
+                secondryPages[secondryPanelsHidden].SetInteger("Show", 0);
+                secondryPanelsHidden++;
+            }
+
             //For each panel...
             for (int i = 0; i < panels.Length; i++)
             {
