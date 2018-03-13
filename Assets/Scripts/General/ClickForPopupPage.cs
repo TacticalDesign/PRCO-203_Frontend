@@ -4,13 +4,10 @@ using UnityEngine;
 
 public class ClickForPopupPage : MonoBehaviour {
 
-	[SerializeField]
-	private string resourceID;
+	private string[] resource;
 
 	[SerializeField]
 	private PageType pageType;
-
-	[SerializeField]
 	private OnPopupPageOpen pageToOpen;
 
 	[SerializeField]
@@ -23,11 +20,11 @@ public class ClickForPopupPage : MonoBehaviour {
 	}
 
 	public void PopupNewPage(){
-		pageToOpen.OnEnter (resourceID, pageType, parentPage);
+		pageToOpen.OnEnter (resource, pageType, parentPage);
 	}
 
-	public void SetResourceID(string _resourceID){
-		resourceID = _resourceID;
+	public void SetResource(string[] _resource){
+		resource = _resource;
 	}
 
 	public void SetPageToOpen(OnPopupPageOpen _pageToOpen){

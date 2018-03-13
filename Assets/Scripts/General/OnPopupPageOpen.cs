@@ -9,7 +9,7 @@ public class OnPopupPageOpen : MonoBehaviour {
 
 	private Animator anim;
 
-	private string resourceID;
+	private string[] resource;
 	private PageType pageType;
 
 	private GameObject parent;
@@ -23,8 +23,8 @@ public class OnPopupPageOpen : MonoBehaviour {
 		FillData ();
 	}
 
-	public void OnEnter(string _resourceID, PageType _pageType, GameObject _parent){
-		resourceID = _resourceID;
+	public void OnEnter(string[] _resource, PageType _pageType, GameObject _parent){
+		resource = _resource;
 		parent = _parent;
 		pageType = _pageType;
 		EnableBackButton ();
@@ -41,13 +41,13 @@ public class OnPopupPageOpen : MonoBehaviour {
 	private void FillData(){
 		switch (pageType) {
 		case PageType.CHALLENGER_PROFILE:
-			gameObject.GetComponent<DummyChallengerProfile> ().FillData (resourceID);
+			gameObject.GetComponent<DummyChallengerProfile> ().FillData (resource);
 			break;
 		case PageType.CHALLENGE_INFO:
-			gameObject.GetComponent<DummyChallengeInfo> ().FillData(resourceID);
+			gameObject.GetComponent<DummyChallengeInfo> ().FillData(resource);
 			break;
 		case PageType.EDIT_PROFILE:
-			gameObject.GetComponent<DummyEditInformation> ().FillData (resourceID);
+			gameObject.GetComponent<DummyEditInformation> ().FillData (resource);
 			break;
 		}
 		anim.SetInteger ("Show", 1);

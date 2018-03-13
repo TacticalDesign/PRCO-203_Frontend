@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class DummyChallengeInfo : MonoBehaviour {
-	public void FillData(string _resourceID){
-		string[] dataPulled = DummyPullDataFromID.PullArrayByID (_resourceID);
-		foreach (string s in dataPulled) {
+	public void FillData(string[] _resource){
+		foreach (string s in _resource) {
 			Debug.Log (s);
 		}
 	}

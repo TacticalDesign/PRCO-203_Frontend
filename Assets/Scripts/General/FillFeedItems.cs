@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class FillFeedItems : MonoBehaviour {
 
-	private string challengeID;
-
 	[SerializeField]
 	private Text challengeName;
 	[SerializeField]
@@ -28,7 +26,6 @@ public class FillFeedItems : MonoBehaviour {
 	private ClickForPopupPage listener;
 
 	public void SetupFeedItem(string[] itemData, OnPopupPageOpen _pageToOpen){
-		challengeID = itemData [0];
 		challengeName.text = itemData [1];
 		skill1.text = itemData [2];
 		skill2.text = itemData [3];
@@ -38,7 +35,7 @@ public class FillFeedItems : MonoBehaviour {
 		deadline.text = itemData [7];
 		challengerName.text = itemData [8];
 
-		listener.SetResourceID (challengeID);
+		listener.SetResource (itemData);
 		listener.SetPageToOpen (_pageToOpen);
 	}
 
