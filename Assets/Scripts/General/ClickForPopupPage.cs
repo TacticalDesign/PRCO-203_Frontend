@@ -29,4 +29,8 @@ public class ClickForPopupPage : MonoBehaviour {
 	public void SetResourceID(string _resourceID){
 		resourceID = _resourceID;
 	}
+
+	public void SetPageToOpen(OnPopupPageOpen _pageToOpen){
+		pageToOpen = _pageToOpen;
+	}
 }

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class DummyChallengeInfo : MonoBehaviour {
 	public void FillData(string _resourceID){
-		Debug.Log ("Not implemented, my res ID is: " + _resourceID);
+		string[] dataPulled = DummyPullDataFromID.PullArrayByID (_resourceID);
+		foreach (string s in dataPulled) {
+			Debug.Log (s);
+		}
 	}
 }
