@@ -1,13 +1,7 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: 0664cd3e04532ea478e0e12d8ee12698
-timeCreated: 1520702452
+guid: 64294a3e2e562294488ae0cd01ddaa41
+timeCreated: 1520882144
 licenseType: Free
-=======
-guid: 57a6fa23f7840f741ae66c327a2ce0ed
-timeCreated: 1520857224
-licenseType: Pro
->>>>>>> hotfix/layouts
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2

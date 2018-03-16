@@ -1,0 +1,5 @@
+﻿public enum PageType{
+	CHALLENGE_INFO,
+	CHALLENGER_PROFILE,
+	EDIT_PROFILE
+}

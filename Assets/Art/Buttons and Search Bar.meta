@@ -1,7 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 4a4e6f8a7adad714d9d50ee1dd3775ec
 folderAsset: yes
 timeCreated: 1520602787
+=======
+guid: 6d1357be6a208064ba27490402e0a049
+folderAsset: yes
+timeCreated: 1520857976
+>>>>>>> hotfix/layouts
 licenseType: Pro
 DefaultImporter:
   externalObjects: {}
