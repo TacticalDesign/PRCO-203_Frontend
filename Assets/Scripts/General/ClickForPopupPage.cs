@@ -8,6 +8,8 @@ public class ClickForPopupPage : MonoBehaviour {
 
 	[SerializeField]
 	private PageType pageType;
+
+    [SerializeField]
 	private OnPopupPageOpen pageToOpen;
 
 	[SerializeField]
