@@ -15,12 +15,6 @@ public class ClickForPopupPage : MonoBehaviour {
 	[SerializeField]
 	private GameObject parentPage = null;
 
-	void Start(){
-		if (parentPage == null) {
-			parentPage = gameObject;
-		}
-	}
-
 	public void PopupNewPage(){
 		pageToOpen.OnEnter (resource, pageType, parentPage);
 	}
@@ -31,5 +25,9 @@ public class ClickForPopupPage : MonoBehaviour {
 
 	public void SetPageToOpen(OnPopupPageOpen _pageToOpen){
 		pageToOpen = _pageToOpen;
+	}
+
+	public void SetParentPage(GameObject _parent){
+		parentPage = _parent;
 	}
 }
