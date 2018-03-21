@@ -5,7 +5,7 @@ using UnityEngine;
 public class CreateFeedItemsFromArray : MonoBehaviour {
 
 	[SerializeField]
-	private GameObject challengeFeedContainer;
+	private GameObject itemFeedContainer;
 
 	[SerializeField]
 	private OnPopupPageOpen pageToOpen;
@@ -17,66 +17,107 @@ public class CreateFeedItemsFromArray : MonoBehaviour {
 	private GameObject parentScrollRect;
 
 	[SerializeField]
-	private GeneratorType whichChallengesToPull;
+	private GeneratorType whichItemsToPull;
 
-	private string[][] displayedChallenges;
+	private string[][] displayedItems;
 
 
 	void Start(){
-		ChangeFeedDisplay (whichChallengesToPull);
+		ChangeFeedDisplay (whichItemsToPull);
 	}
 
 	public void ChangeFeedDisplay(GeneratorType _newFeedType){
 		ResetFeed ();
-		whichChallengesToPull = _newFeedType;
+		whichItemsToPull = _newFeedType;
 
-		switch (whichChallengesToPull) {
+		switch (whichItemsToPull) {
 		case GeneratorType.CHALLENGE_FEED:
 			PullAllChallenges ();
+			FillChallengeFeed ();
 			break;
 		case GeneratorType.COMPLETED_FEED:
 			PullCompleted ();
+			FillChallengeFeed ();
 			break;
 		case GeneratorType.UPCOMING_FEED:
 			PullUpcoming ();
+			FillChallengeFeed ();
+			break;
+		case GeneratorType.REWARD_PAGE:
+			PullRewards ();
+			FillRewardFeed ();
+			break;
+		case GeneratorType.FEEDBACK_PAGE:
+			PullFeedback ();
+			FillFeedbackFeed ();
 			break;
 		}
 
-		FillChallengeFeed ();
+
 	}
 
 	public void ResetFeed(){
-		foreach (Transform child in challengeFeedContainer.transform) {
+		foreach (Transform child in itemFeedContainer.transform) {
 			Destroy (child.gameObject);
 		}
 	}
 
 	public void RefreshFeed(){
-		ChangeFeedDisplay (whichChallengesToPull);
+		ChangeFeedDisplay (whichItemsToPull);
 	}
 
 	public void FillChallengeFeed(){
-		foreach (string[] s in displayedChallenges) {
+		foreach (string[] s in displayedItems) {
 			MakeNewChallengeFeedItem (s);
 		}
 	} 
 
 	private void PullAllChallenges(){
-		displayedChallenges = DummyPullDataFromID.PullFeedChallenges ();
+		displayedItems = DummyPullDataFromID.PullFeedChallenges ();
 	}
 
 	private void PullUpcoming(){
-		displayedChallenges = DummyPullDataFromID.PullUpcoming ();
+		displayedItems = DummyPullDataFromID.PullUpcoming ();
 	}
 
 	private void PullCompleted(){
-		displayedChallenges = DummyPullDataFromID.PullCompleted ();
+		displayedItems = DummyPullDataFromID.PullCompleted ();
 	}
 
 	private void MakeNewChallengeFeedItem(string[] resource){
-		GameObject newChallenge = Instantiate (objectToInstantiate, challengeFeedContainer.transform);
+		GameObject newChallenge = Instantiate (objectToInstantiate, itemFeedContainer.transform);
 		newChallenge.GetComponent<FillFeedItems> ().SetupFeedItem (resource, pageToOpen);
 		newChallenge.GetComponent<FillFeedItems> ().SetListenerParent (gameObject);
 		newChallenge.GetComponent<OnClickHandler> ().SetParentScrollRect (parentScrollRect);
+	}
+
+	public void FillRewardFeed(){
+		foreach (string[] s in displayedItems) {
+			MakeRewardFeedItem (s);
+		}
+	} 
+
+	private void PullRewards(){
+		displayedItems = DummyPullDataFromID.PullRewards ();
+	}
+
+	private void MakeRewardFeedItem(string[] resource){
+		GameObject newReward = Instantiate (objectToInstantiate, itemFeedContainer.transform);
+		newReward.GetComponent<FillRewardItems> ().FillItems (resource);
+	}
+
+	public void FillFeedbackFeed(){
+		foreach (string[] s in displayedItems) {
+			MakeFeedbackItem (s);
+		}
+	} 
+
+	private void PullFeedback(){
+		displayedItems = DummyPullDataFromID.PullFeedback ();
+	}
+
+	private void MakeFeedbackItem(string[] resource){
+		GameObject newFeedback = Instantiate (objectToInstantiate, itemFeedContainer.transform);
+		newFeedback.GetComponent<FillFeedbackItems> ().FillItems (resource);
 	}
 }

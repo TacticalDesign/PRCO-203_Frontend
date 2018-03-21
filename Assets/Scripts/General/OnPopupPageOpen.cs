@@ -64,7 +64,8 @@ public class OnPopupPageOpen : MonoBehaviour {
 			break;
 		case PageType.EDIT_PROFILE:
 			gameObject.GetComponent<DummyEditInformation> ().FillData (resource);
-			triggerExitEvent = new exitEvent(RefreshMasterPage);
+			gameObject.GetComponent<DummyEditInformation> ().ToggleSavebutton (true);
+			triggerExitEvent = new exitEvent(ExitEditProfile);
 			break;
 		}
 		anim.SetInteger ("Show", 1);
@@ -76,6 +77,11 @@ public class OnPopupPageOpen : MonoBehaviour {
 
 	private void RefreshSecondaryPage(){
 		parent.GetComponent<DummyChallengeInfo> ().ResetPage ();
+	}
+
+	private void ExitEditProfile(){
+		gameObject.GetComponent<DummyEditInformation> ().ToggleSavebutton (false);
+		gameObject.GetComponent<DummyEditInformation> ().CancelChanges ();
 	}
 
 	private void EnableBackButton(){

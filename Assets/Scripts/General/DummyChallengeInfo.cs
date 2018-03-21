@@ -55,6 +55,7 @@ public class DummyChallengeInfo : MonoBehaviour {
 		}
 		if (_resource [2] == "true") {
 			DisplayButtons [2].SetActive (true);
+			DisplayButtons [2].GetComponent<ChallengeViewFeedbackButton> ().SetChallengeID (resID);
 		} else if (_resource [1] == "true") {
 			DisplayButtons [1].SetActive (true);
 			DisplayButtons [1].GetComponent<DummyOptOut> ().SetResource (_resource);
