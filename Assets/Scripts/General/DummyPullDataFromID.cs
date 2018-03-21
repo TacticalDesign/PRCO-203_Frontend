@@ -225,12 +225,20 @@ public static class DummyPullDataFromID {
 		"800"
 	};
 
+	private static string[] reward6 = new string[] {
+		"ph1",
+		"PrawnHub Premium Membership",
+		"Premium access to our site for 30 days, no ads, no limits",
+		"999,999"
+	};
+
 	private static string[][] rewards = new string[][]{
 		reward1,
 		reward2,
 		reward3,
 		reward4,
-		reward5
+		reward5,
+		reward6
 	};
 
 	public static string[][] PullRewards (){
