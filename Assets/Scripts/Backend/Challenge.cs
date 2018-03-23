@@ -3,7 +3,7 @@
     using System;
     using Newtonsoft.Json;
 
-    public partial class Challenge
+    public class Challenge
     {
         [JsonProperty("id")]
         public string ID { get; set; }
