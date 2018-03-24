@@ -97,5 +97,32 @@
             }
             return null;
         }
+
+        public static async Task<Admin> DeleteSelf()
+        {
+            //Set up the request
+            var client = new RestClient(API.BaseURL + "Admin.php");
+            var request = new RestRequest(Method.DELETE);
+            request.AddHeader("Cache-Control", "no-cache");
+            request.AddHeader("Authorization", "Bearer " + MyPrefs.GetPref<string>(MyPrefs.Prefs.RawToken));
+            request.AddHeader("Content-Type", "application/x-www-form-urlencoded");
+
+            //Get the data async
+            IRestResponse response = await Task.Run(() =>
+            {
+                return client.Execute(request);
+            });
+            Response<Admin> data = Response<Admin>.FromJson(response.Content);
+
+            //Log any errors
+            for (int i = 0; i < data.Errors.Length; i++)
+                Debug.LogError(data.Errors[i]);
+
+            if (data.Result.Length == 1)
+            {
+                return data.Result[0];
+            }
+            return null;
+        }
     }
 }
