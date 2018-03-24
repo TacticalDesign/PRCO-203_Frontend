@@ -7,27 +7,49 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using static MyPrefs;
 
 namespace Backend
 {
     public static class API
     {
-        public static async Task<Token> GetToken(string email, string password, string tempPassword = "")
+        public static string BaseURL = "http://localhost/DP/api/";
+        //public static string BaseURL = "http://tobysmith.uk/DP/";
+
+        public static async Task<TokenRequest> GetToken(string email, string password, string tempPassword = "")
         {
-            var client = new RestClient("http://localhost/DP/api/Login.php");
+            //Set up the request
+            var client = new RestClient(BaseURL + "Login.php");
             var request = new RestRequest(Method.POST);
-            request.AddHeader("Postman-Token", "6447e83a-a5f3-49be-8197-b7f1e36e7cbc");
             request.AddHeader("Cache-Control", "no-cache");
             request.AddHeader("Content-Type", "application/x-www-form-urlencoded");
             request.AddParameter("email", email);
             request.AddParameter("password", password);
             if (tempPassword != "")
                 request.AddParameter("tempPassword", tempPassword);
+
+            //Get the data async
             IRestResponse response = await Task.Run(() =>
             {
                 return client.Execute(request);
             });
-            return Token.FromJson(response.Content);
+
+            TokenRequest returnable = TokenRequest.FromJson(response.Content);
+
+            //Log any errors
+            for (int i = 0; i < returnable.Errors.Length; i++)
+                Debug.LogError(returnable.Errors[i]);
+
+            //Save the value if it's not null
+            if (returnable.Value != null)
+            {
+                SetPref(Prefs.RawToken, returnable.Value);
+
+                Token token = Token.FromJWT(returnable.Value);
+                SetPref(Prefs.Token, token);
+            }
+
+            return returnable;
         }
     }
 }
