@@ -124,5 +124,64 @@
             }
             return null;
         }
+
+        public static async Task<YoungPerson> CreateYoungPerson(string email, string firstName)
+        {
+            //Set up the request
+            var client = new RestClient(API.BaseURL + "Admin.php");
+            var request = new RestRequest(Method.POST);
+            request.AddHeader("Cache-Control", "no-cache");
+            request.AddHeader("Authorization", "Bearer " + MyPrefs.GetPref<string>(MyPrefs.Prefs.RawToken));
+            request.AddHeader("Content-Type", "application/x-www-form-urlencoded");
+            request.AddParameter("type", "young person");
+            request.AddParameter("email", email);
+            request.AddParameter("firstName", firstName);
+
+            //Get the data async
+            IRestResponse response = await Task.Run(() =>
+            {
+                return client.Execute(request);
+            });
+            Response<YoungPerson> data = Response<YoungPerson>.FromJson(response.Content);
+
+            //Log any errors
+            for (int i = 0; i < data.Errors.Length; i++)
+                Debug.LogError(data.Errors[i]);
+
+            if (data.Result.Length == 1)
+            {
+                return data.Result[0];
+            }
+            return null;
+        }
+
+        public static async Task<YoungPerson> ToggleYoungPersonFreeze(string id, bool isFrozen)
+        {
+            //Set up the request
+            var client = new RestClient(API.BaseURL + "Admin.php");
+            var request = new RestRequest(Method.PATCH);
+            request.AddHeader("Cache-Control", "no-cache");
+            request.AddHeader("Authorization", "Bearer " + MyPrefs.GetPref<string>(MyPrefs.Prefs.RawToken));
+            request.AddHeader("Content-Type", "application/x-www-form-urlencoded");
+            request.AddParameter("id", id);
+            request.AddParameter("action", isFrozen ? "freeze" : "defrost");
+
+            //Get the data async
+            IRestResponse response = await Task.Run(() =>
+            {
+                return client.Execute(request);
+            });
+            Response<YoungPerson> data = Response<YoungPerson>.FromJson(response.Content);
+
+            //Log any errors
+            for (int i = 0; i < data.Errors.Length; i++)
+                Debug.LogError(data.Errors[i]);
+
+            if (data.Result.Length == 1)
+            {
+                return data.Result[0];
+            }
+            return null;
+        }
     }
 }
