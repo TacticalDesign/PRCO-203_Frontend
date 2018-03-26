@@ -7,24 +7,42 @@ public class TEST : MonoBehaviour
 {
     async void Start()
     {
-        TokenRequest t = await API.GetToken("tobysmith568@hotmail.co.uk", "password1");
-        Debug.Log(t.Value);
+        //Login using Admin credentials
+        Admin a = await Admin.Login("tobysmith568@hotmail.co.uk", "password1");
+        Debug.Log("Logged in admin token: " + a.RawToken);
+        Debug.Log("Logged in admin surname: " + a.Surname);
 
-        Admin a = await Admin.GetSelf();
-        Debug.Log(a.Surname);
+        //Edit the logged in account
+        await a.EditSelf(surname: "Jones");
+        Debug.Log("Logged in admin surname: " + a.Surname);
+        await a.EditSelf(surname: "Smith");
+        Debug.Log("Logged in admin surname: " + a.Surname);
 
-        a = await Admin.EditSelf(surname: "Smith");
-        Debug.Log(a.Surname);
-        a = await Admin.EditSelf(surname: "Jones");
-        Debug.Log(a.Surname);
+        //Create a Young Person
+        YoungPerson yp = await a.CreateYoungPerson("dave@tobysmith.uk", "Dave");
+        Debug.Log("Created Young Person called: " + yp.FirstName);
+        Debug.Log("Is Dave frozen: " + yp.IsFrozen);
 
-        YoungPerson yp = await Admin.CreateYoungPerson("test@tobysmith.uk", "dave");
-        Debug.Log(yp.FirstName);
-        Debug.Log(yp.IsFrozen);
+        //Freeze/Defrost the Young Person
+        yp = await a.SetYoungPersonFreeze(yp.ID, true);
+        Debug.Log("Is Dave frozen: " + yp.IsFrozen);
+        yp = await a.SetYoungPersonFreeze(yp.ID, false);
+        Debug.Log("Is Dave frozen: " + yp.IsFrozen);
 
-        yp = await Admin.ToggleYoungPersonFreeze(yp.ID, true);
-        Debug.Log(yp.IsFrozen);
-        yp = await Admin.ToggleYoungPersonFreeze(yp.ID, false);
-        Debug.Log(yp.IsFrozen);
+        //Create a Challenger
+        Challenger chr = await a.CreateChallenger("devonLife@tobysmith.uk", "Devon Life");
+        Debug.Log("Created a Challenger called: " + chr.Name);
+        Debug.Log("Is Devon Life frozen: " + chr.IsFrozen);
+
+        //Freeze/Defrost the Challenger
+        chr = await a.SetChallengerFreeze(chr.ID, true);
+        Debug.Log("Is Devon Life frozen: " + chr.IsFrozen);
+        chr = await a.SetChallengerFreeze(chr.ID, false);
+        Debug.Log("Is Devon Life frozen: " + chr.IsFrozen);
+
+
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#endif
     }
 }

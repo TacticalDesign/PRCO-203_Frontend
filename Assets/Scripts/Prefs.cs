@@ -2,7 +2,5 @@
 {
     public enum Prefs
     {
-        RawToken,
-        Token
     }
 }

@@ -51,7 +51,6 @@
             return JsonConvert.SerializeObject(this, Backend.Converter.Settings);
         }
 
-
         public class Header
         {
             [JsonProperty("typ")]

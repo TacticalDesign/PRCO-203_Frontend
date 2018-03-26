@@ -7,6 +7,9 @@
 
     public class Challenger
     {
+        // JSON Properties
+        // ===============
+
         [JsonProperty("id")]
         public string ID { get; set; }
 
@@ -56,6 +59,17 @@
         [JsonProperty("archivedChallenges")]
         public Challenge[] ArchivedChallenges { get; set; }
 
+        // Other Properties
+        // ================
+
+        [JsonIgnore]
+        public string RawToken { get; private set; }
+        [JsonIgnore]
+        public Token Token { get; private set; }
+
+        // JSON Methods
+        // ============
+
         public static Challenger FromJson(string json)
         {
             return JsonConvert.DeserializeObject<Challenger>(json, Backend.Converter.Settings);
@@ -66,14 +80,20 @@
             return JsonConvert.SerializeObject(this, Backend.Converter.Settings);
         }
 
-        public static async Task<Challenger> GetSelf()
+        // Commands
+        // ========
+
+        public async Task<Challenger> Login(string email, string password, string tempPassword = "")
         {
             //Set up the request
-            var client = new RestClient(API.BaseURL + "Challenger.php");
-            var request = new RestRequest(Method.GET);
+            var client = new RestClient(API.BaseURL + "Login.php");
+            var request = new RestRequest(Method.POST);
             request.AddHeader("Cache-Control", "no-cache");
-            request.AddHeader("Authorization", "Bearer " + MyPrefs.GetPref<string>(MyPrefs.Prefs.Token));
             request.AddHeader("Content-Type", "application/x-www-form-urlencoded");
+            request.AddParameter("email", email);
+            request.AddParameter("password", password);
+            if (tempPassword != "")
+                request.AddParameter("tempPassword", tempPassword);
 
             //Get the data async
             IRestResponse response = await Task.Run(() =>
@@ -81,7 +101,37 @@
                 return client.Execute(request);
             });
 
-            Response<Challenger> data = Response<Challenger>.FromJson(response.Content);
+            TokenRequest token = TokenRequest.FromJson(response.Content);
+
+            //Log any errors
+            for (int i = 0; i < token.Errors.Length; i++)
+                Debug.LogError(token.Errors[i]);
+
+            Challenger newChallenger = new Challenger
+            {
+                RawToken = token.Value,
+                Token = Token.FromJWT(token.Value)
+            };
+            await newChallenger.Update();
+
+            return newChallenger;
+        }
+
+        public async Task<bool> Update()
+        {
+            //Set up the request
+            var client = new RestClient(API.BaseURL + "YoungPerson.php");
+            var request = new RestRequest(Method.GET);
+            request.AddHeader("Cache-Control", "no-cache");
+            request.AddHeader("Authorization", "Bearer " + RawToken);
+            request.AddHeader("Content-Type", "application/x-www-form-urlencoded");
+
+            //Get the data async
+            IRestResponse response = await Task.Run(() =>
+            {
+                return client.Execute(request);
+            });
+            Response<YoungPerson> data = Response<YoungPerson>.FromJson(response.Content);
 
             //Log any errors
             for (int i = 0; i < data.Errors.Length; i++)
@@ -89,9 +139,11 @@
 
             if (data.Result.Length == 1)
             {
-                return data.Result[1];
+                string result = JsonConvert.SerializeObject(data.Result[0]);
+                JsonConvert.PopulateObject(result, this);
+                return true;
             }
-            return null;
+            return false;
         }
     }
 }

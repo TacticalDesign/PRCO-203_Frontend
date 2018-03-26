@@ -10,9 +10,6 @@ public static partial class MyPrefs
     static MyPrefs()
     {
         //If any prefs don't exsist, give them their default values
-
-        if (!Exists(Prefs.RawToken))
-            SetPref(Prefs.RawToken, "");
     }
 
     /// <summary>
