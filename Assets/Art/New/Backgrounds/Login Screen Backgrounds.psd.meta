@@ -1,10 +1,6 @@
 fileFormatVersion: 2
-guid: cf4eeab0574da864e81a389a65df4f8d
-<<<<<<< HEAD
-timeCreated: 1521582219
-=======
-timeCreated: 1521732850
->>>>>>> artwork/re-design_devlopment
+guid: 76de8156eccbbd444aaee041e7b3d7ed
+timeCreated: 1521735055
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName: {}
