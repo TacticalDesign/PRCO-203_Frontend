@@ -21,4 +21,10 @@ public class MainBackButton : MonoBehaviour {
 		activeScreen = _screen;
 		gameObject.SetActive (true);
 	}
+
+	void Update(){
+		if (Input.GetKeyDown (KeyCode.Escape)) {
+			backToPrevPage ();
+		}
+	}
 }
