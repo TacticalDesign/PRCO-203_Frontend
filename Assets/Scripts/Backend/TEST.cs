@@ -7,6 +7,11 @@ public class TEST : MonoBehaviour
 {
     async void Start()
     {
+        // Admin Testing
+        // =============
+
+        /*
+
         //Login using Admin credentials
         Admin a = await Admin.Login("tobysmith568@hotmail.co.uk", "password1");
         Debug.Log("Logged in admin token: " + a.RawToken);
@@ -39,6 +44,21 @@ public class TEST : MonoBehaviour
         Debug.Log("Is Devon Life frozen: " + chr.IsFrozen);
         chr = await a.SetChallengerFreeze(chr.ID, false);
         Debug.Log("Is Devon Life frozen: " + chr.IsFrozen);
+
+        */
+
+        // Young People Testing
+        // ====================
+
+        YoungPerson yp = await YoungPerson.Login("toby@tobysmith.uk", "password1");
+        Debug.Log("Logged in young person token: " + yp.RawToken);
+        Debug.Log("Logged in young person surname: " + yp.Surname);
+
+        //Edit the logged in account
+        await yp.EditSelf(surname: "Jones");
+        Debug.Log("Logged in admin surname: " + yp.Surname);
+        await yp.EditSelf(surname: "Smith");
+        Debug.Log("Logged in admin surname: " + yp.Surname);
 
 
 #if UNITY_EDITOR

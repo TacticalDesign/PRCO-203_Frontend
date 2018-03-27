@@ -83,7 +83,7 @@
         // Commands
         // ========
 
-        public async Task<Challenger> Login(string email, string password, string tempPassword = "")
+        public static async Task<Challenger> Login(string email, string password, string tempPassword = "")
         {
             //Set up the request
             var client = new RestClient(API.BaseURL + "Login.php");
@@ -120,7 +120,7 @@
         public async Task<bool> Update()
         {
             //Set up the request
-            var client = new RestClient(API.BaseURL + "YoungPerson.php");
+            var client = new RestClient(API.BaseURL + "Challenger.php");
             var request = new RestRequest(Method.GET);
             request.AddHeader("Cache-Control", "no-cache");
             request.AddHeader("Authorization", "Bearer " + RawToken);
@@ -131,7 +131,36 @@
             {
                 return client.Execute(request);
             });
-            Response<YoungPerson> data = Response<YoungPerson>.FromJson(response.Content);
+            Response<Challenger> data = Response<Challenger>.FromJson(response.Content);
+
+            //Log any errors
+            for (int i = 0; i < data.Errors.Length; i++)
+                Debug.LogError(data.Errors[i]);
+
+            if (data.Result.Length == 1)
+            {
+                string result = JsonConvert.SerializeObject(data.Result[0]);
+                JsonConvert.PopulateObject(result, this);
+                return true;
+            }
+            return false;
+        }
+
+        public async Task<bool> DeleteSelf()
+        {
+            //Set up the request
+            var client = new RestClient(API.BaseURL + "Challenger.php");
+            var request = new RestRequest(Method.DELETE);
+            request.AddHeader("Cache-Control", "no-cache");
+            request.AddHeader("Authorization", "Bearer " + RawToken);
+            request.AddHeader("Content-Type", "application/x-www-form-urlencoded");
+
+            //Get the data async
+            IRestResponse response = await Task.Run(() =>
+            {
+                return client.Execute(request);
+            });
+            Response<Challenger> data = Response<Challenger>.FromJson(response.Content);
 
             //Log any errors
             for (int i = 0; i < data.Errors.Length; i++)
