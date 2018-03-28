@@ -175,7 +175,7 @@ public static class DummyPullDataFromID {
 		"Rugby",
 		"Video Games",
 		"650",
-		"4.2"
+		"4"
 	};
 
 	public static string[] PullPersonalInformation(){
