@@ -39,10 +39,10 @@
         public string[] Interests { get; private set; }
 
         [JsonProperty("currentChallenges")]
-        public Challenge[] CurrentChallenges { get; private set; }
+        public Challenger.Challenge[] CurrentChallenges { get; private set; }
 
         [JsonProperty("archivedChallenges")]
-        public Challenge[] ArchivedChallenges { get; private set; }
+        public Challenger.Challenge[] ArchivedChallenges { get; private set; }
 
         [JsonProperty("feedbacks")]
         public Feedback[] Feedbacks { get; private set; }

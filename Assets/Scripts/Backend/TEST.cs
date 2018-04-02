@@ -49,8 +49,8 @@ public class TEST : MonoBehaviour
         // ====================
 
         Challenger c = await Challenger.Login("devonLife@tobysmith.uk", "password1");
-        Debug.Log("Logged in young person token: " + c.RawToken);
-        Debug.Log("Logged in young person name: " + c.Name);
+        Debug.Log("Logged in Challenger token: " + c.RawToken);
+        Debug.Log("Logged in Challenger name: " + c.Name);
 
         //Edit the logged in account
         await c.EditSelf(name: "Cornwall Life");
@@ -58,6 +58,17 @@ public class TEST : MonoBehaviour
         await c.EditSelf(name: "Devon Life");
         Debug.Log("Logged in Challenger name: " + c.Name);
 
+        //Create a Challenge
+        Challenger.Challenge c1 = await c.CreateChallenge("Article", new string[] { "arty" }, "This is a description",
+            50, "", "", "Devon", new System.DateTime(2018, 05, 06, 12, 00, 00), 1, 10);
+        Debug.Log("New challenges name: " + c1.Name);
+        Debug.Log("New challenges description: " + c1.Description);
+
+        //Edit the Challenge
+        await c1.EditChallenge(c.RawToken, description: "This is a new description");
+        Debug.Log("New challenges description: " + c1.Description);
+        await c1.EditChallenge(c.RawToken, description: "This is a description");
+        Debug.Log("New challenges description: " + c1.Description);
 
 
         // Young People Testing

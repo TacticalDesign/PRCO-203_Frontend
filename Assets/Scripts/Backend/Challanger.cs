@@ -2,10 +2,11 @@
 {
     using Newtonsoft.Json;
     using RestSharp;
+    using System;
     using System.Threading.Tasks;
     using UnityEngine;
 
-    public class Challenger
+    public partial class Challenger
     {
         // JSON Properties
         // ===============
@@ -148,7 +149,8 @@
             return false;
         }
 
-        public async Task<bool> EditSelf(string email = "", string password = "", string name = "", Color? colour = null, string contactEmail = "", string contactPhone = "", string about = "")
+        public async Task<bool> EditSelf(string email = "", string password = "", string name = "", Color? colour = null,
+                                        string contactEmail = "", string contactPhone = "", string about = "")
         {
             //Set up the request
             var client = new RestClient(API.BaseURL + "Challenger.php");
@@ -220,5 +222,49 @@
             }
             return false;
         }
+
+        public async Task<Challenge> CreateChallenge(string name, string[] skills, string description, int reward,
+                                                string location1, string location2, string location3, DateTime closingTime,
+                                                int minAttendees, int maxAttendees)
+        {
+            //Set up the request
+            var client = new RestClient(API.BaseURL + "Challenge.php");
+            var request = new RestRequest(Method.POST);
+            request.AddHeader("Cache-Control", "no-cache");
+            request.AddHeader("Authorization", "Bearer " + RawToken);
+            request.AddHeader("Content-Type", "application/x-www-form-urlencoded");
+            request.AddParameter("name", name);
+            for (int i = 0; i < skills.Length; i++)
+                request.AddParameter("skills[]", skills[i]);
+            request.AddParameter("description", description);
+            request.AddParameter("reward", reward);
+            request.AddParameter("location1", location1);
+            request.AddParameter("location2", location2);
+            request.AddParameter("location3", location3);
+            request.AddParameter("closingTime", (long)closingTime.Subtract(new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Local))
+                        .TotalSeconds);
+            request.AddParameter("minAttendees", minAttendees);
+            request.AddParameter("maxAttendees", maxAttendees);
+
+            //Get the data async
+            IRestResponse response = await Task.Run(() =>
+            {
+                return client.Execute(request);
+            });
+            Response<Challenge> data = Response<Challenge>.FromJson(response.Content);
+
+            //Log any errors
+            for (int i = 0; i < data.Errors.Length; i++)
+                Debug.LogError(data.Errors[i]);
+
+            //Return the new Challenge
+            if (data.Result.Length == 1)
+            {
+                return data.Result[0];
+            }
+
+            return null;
+        }
+
     }
 }
