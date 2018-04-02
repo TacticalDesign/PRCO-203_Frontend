@@ -43,6 +43,8 @@
 
         [JsonProperty("closingTime")]
         private long UnixClosingTime { get; set; }
+
+        [JsonIgnore]
         public DateTime ClosingTime
         {
             get
