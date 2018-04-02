@@ -11,22 +11,22 @@
         // ===============
 
         [JsonProperty("id")]
-        public string ID { get; set; }
+        public string ID { get; private set; }
 
         [JsonProperty("frozen")]
-        public bool IsFrozen { get; set; }
+        public bool IsFrozen { get; private set; }
 
         [JsonProperty("email")]
-        public string Email { get; set; }
+        public string Email { get; private set; }
 
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string Name { get; private set; }
 
         [JsonProperty("image")]
-        public string Image { get; set; }
+        public string Image { get; private set; }
 
         [JsonProperty("cover")]
-        public string Cover { get; set; }
+        public string Cover { get; private set; }
 
         [JsonProperty("colour")]
         private string HexColour { get; set; }
@@ -40,26 +40,26 @@
                 ColorUtility.TryParseHtmlString(HexColour, out colour);
                 return colour;
             }
-            set
+            private set
             {
                 HexColour = ColorUtility.ToHtmlStringRGB(value);
             }
         }
 
         [JsonProperty("contactEmail")]
-        public string ContactEmail { get; set; }
+        public string ContactEmail { get; private set; }
 
         [JsonProperty("contactPhone")]
-        public string ContactPhone { get; set; }
+        public string ContactPhone { get; private set; }
 
         [JsonProperty("about")]
-        public string About { get; set; }
+        public string About { get; private set; }
 
         [JsonProperty("currentChallenges")]
-        public Challenge[] CurrentChallenges { get; set; }
+        public Challenge[] CurrentChallenges { get; private set; }
 
         [JsonProperty("archivedChallenges")]
-        public Challenge[] ArchivedChallenges { get; set; }
+        public Challenge[] ArchivedChallenges { get; private set; }
 
         // Other Properties
         // ================

@@ -6,40 +6,40 @@
     public class Challenge
     {
         [JsonProperty("id")]
-        public string ID { get; set; }
+        public string ID { get; private set; }
 
         [JsonProperty("frozen")]
-        public bool IsFrozen { get; set; }
+        public bool IsFrozen { get; private set; }
 
         [JsonProperty("challenger")]
-        public Challenger Challenger { get; set; }
+        public Challenger Challenger { get; private set; }
 
         [JsonProperty("adminApproved")]
-        public bool IsAdminApproved { get; set; }
+        public bool IsAdminApproved { get; private set; }
 
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public string Name { get; private set; }
 
         [JsonProperty("image")]
-        public string Image { get; set; }
+        public string Image { get; private set; }
 
         [JsonProperty("skills")]
-        public string[] Skills { get; set; }
+        public string[] Skills { get; private set; }
 
         [JsonProperty("description")]
-        public string Description { get; set; }
+        public string Description { get; private set; }
 
         [JsonProperty("reward")]
-        public int Reward { get; set; }
+        public int Reward { get; private set; }
 
         [JsonProperty("location1")]
-        public string Location1 { get; set; }
+        public string Location1 { get; private set; }
 
         [JsonProperty("location2")]
-        public string Location2 { get; set; }
+        public string Location2 { get; private set; }
 
         [JsonProperty("location3")]
-        public string Location3 { get; set; }
+        public string Location3 { get; private set; }
 
         [JsonProperty("closingTime")]
         private long UnixClosingTime { get; set; }
@@ -60,12 +60,12 @@
         }
 
         [JsonProperty("minAttendees")]
-        public int MinAttendees { get; set; }
+        public int MinAttendees { get; private set; }
 
         [JsonProperty("maxAttendees")]
-        public int MaxAttendees { get; set; }
+        public int MaxAttendees { get; private set; }
 
         [JsonProperty("attendees")]
-        public YoungPerson[] Attendees { get; set; }
+        public YoungPerson[] Attendees { get; private set; }
     }
 }

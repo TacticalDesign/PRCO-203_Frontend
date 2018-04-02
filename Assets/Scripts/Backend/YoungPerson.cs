@@ -12,40 +12,40 @@
         // ===============
 
         [JsonProperty("id")]
-        public string ID { get; set; }
+        public string ID { get; private set; }
 
         [JsonProperty("frozen")]
-        public bool IsFrozen { get; set; }
+        public bool IsFrozen { get; private set; }
 
         [JsonProperty("email")]
-        public string Email { get; set; }
+        public string Email { get; private set; }
 
         [JsonProperty("firstName")]
-        public string FirstName { get; set; }
+        public string FirstName { get; private set; }
 
         [JsonProperty("surname")]
-        public string Surname { get; set; }
+        public string Surname { get; private set; }
 
         [JsonProperty("balance")]
-        public int Balance { get; set; }
+        public int Balance { get; private set; }
 
         [JsonProperty("image")]
-        public string Image { get; set; }
+        public string Image { get; private set; }
 
         [JsonProperty("skills")]
-        public string[] Skills { get; set; }
+        public string[] Skills { get; private set; }
 
         [JsonProperty("interests")]
-        public string[] Interests { get; set; }
+        public string[] Interests { get; private set; }
 
         [JsonProperty("currentChallenges")]
-        public Challenge[] CurrentChallenges { get; set; }
+        public Challenge[] CurrentChallenges { get; private set; }
 
         [JsonProperty("archivedChallenges")]
-        public Challenge[] ArchivedChallenges { get; set; }
+        public Challenge[] ArchivedChallenges { get; private set; }
 
         [JsonProperty("feedbacks")]
-        public Feedback[] Feedbacks { get; set; }
+        public Feedback[] Feedbacks { get; private set; }
 
         // Other Properties
         // ================

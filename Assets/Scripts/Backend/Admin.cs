@@ -12,22 +12,22 @@
         // ===============
 
         [JsonProperty("id")]
-        public string ID { get; set; }
+        public string ID { get; private set; }
 
         [JsonProperty("frozen")]
-        public bool IsFrozen { get; set; }
+        public bool IsFrozen { get; private set; }
 
         [JsonProperty("email")]
-        public string Email { get; set; }
+        public string Email { get; private set; }
 
         [JsonProperty("firstName")]
-        public string FirstName { get; set; }
+        public string FirstName { get; private set; }
 
         [JsonProperty("surname")]
-        public string Surname { get; set; }
+        public string Surname { get; private set; }
 
         [JsonProperty("image")]
-        public string Image { get; set; }
+        public string Image { get; private set; }
 
         // Other Properties
         // ================
