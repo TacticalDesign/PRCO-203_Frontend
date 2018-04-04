@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class DummyAcceptChallenge : MonoBehaviour {
 
+	[SerializeField]
+	private DummyChallengeInfo resetPage;
+
 	private string[] resource;
 
 	public void AcceptChallenge(){
@@ -16,5 +19,10 @@ public class DummyAcceptChallenge : MonoBehaviour {
 
 	public void SetResource(string[] _resource){
 		resource = _resource;
+	}
+
+	public void DialogueAccepted(){
+		AcceptChallenge ();
+		resetPage.ResetPage ();
 	}
 }

@@ -84,7 +84,11 @@ public class OnPopupPageOpen : MonoBehaviour {
 		gameObject.GetComponent<DummyEditInformation> ().CancelChanges ();
 	}
 
-	private void EnableBackButton(){
+	public void EnableBackButton(){
 		mainBackButton.SetActiveScreen (gameObject);
+	}
+
+	public void DisableBackButton(){
+		mainBackButton.SetActiveScreen (null);
 	}
 }

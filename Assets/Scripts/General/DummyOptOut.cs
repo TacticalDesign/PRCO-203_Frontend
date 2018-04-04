@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class DummyOptOut : MonoBehaviour {
 
+	[SerializeField]
+	private DummyChallengeInfo resetPage;
+
 	private string[] resource;
 
 	public void OptOut(){
@@ -16,5 +19,10 @@ public class DummyOptOut : MonoBehaviour {
 
 	public void SetResource(string[] _resource){
 		resource = _resource;
+	}
+
+	public void DialogueAccepted(){
+		OptOut ();
+		resetPage.ResetPage ();
 	}
 }
