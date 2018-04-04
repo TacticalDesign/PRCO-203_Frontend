@@ -13,11 +13,28 @@ public class FillRewardItems : MonoBehaviour {
 	private Text rewardPoints;
 
 	private string rewardID;
+	private int rewardCost;
 
-	public void FillItems(string[] _rewardData){
+	public void FillItems(string[] _rewardData, GameObject _parentScrollRect){
 		rewardID = _rewardData [0];
 		rewardTitle.text = _rewardData [1];
 		rewardDescription.text = _rewardData [2];
 		rewardPoints.text = _rewardData [3];
+		rewardCost = int.Parse(_rewardData [3]);
+		GetComponent<OnClickHandler> ().SetParentScrollRect (_parentScrollRect);
+	}
+
+	public string GetID(){
+		return rewardID;
+	}
+
+	public void CanRedeem(){
+		int tempRewardPoints = int.Parse (DummyPullDataFromID.PullPersonalInformation() [8]);
+		Debug.Log ("Mine: " + tempRewardPoints + ", target: " + rewardCost);
+		if (tempRewardPoints >= rewardCost) {
+			GetComponent<ClickForDialogueBox> ().SetupDialogue ();
+		} else {
+			GetComponent<ClickForInformationBox> ().SetupInfo ();
+		}
 	}
 }

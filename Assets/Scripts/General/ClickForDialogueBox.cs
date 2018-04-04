@@ -16,10 +16,13 @@ public class ClickForDialogueBox : MonoBehaviour {
 	private DialogueChoices myDialogue;
 	private int responseFlag;
 
+
 	public void SetupDialogue(){
 		myDialogue = Instantiate (dialogueBoxPrefab, GameObject.FindGameObjectWithTag("MainCanvas").transform).GetComponent<DialogueChoices>();
 		myDialogue.SetupDialogue (myDialogueType, GetComponent<ClickForDialogueBox>());
-		onPopupPageOpen.DisableBackButton ();
+		if (onPopupPageOpen != null) {
+			onPopupPageOpen.DisableBackButton ();
+		}
 		StartCoroutine (WaitForResponse ());
 	}
 
@@ -34,7 +37,9 @@ public class ClickForDialogueBox : MonoBehaviour {
 		Destroy (myDialogue.gameObject);
 
 		responseFlag = 0;
-		onPopupPageOpen.EnableBackButton ();
+		if(onPopupPageOpen != null){
+			onPopupPageOpen.EnableBackButton ();
+		}
 		yield return null;
 	}
 

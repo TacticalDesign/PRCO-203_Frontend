@@ -34,6 +34,11 @@ public class DialogueChoices : MonoBehaviour {
 			acceptText.text = "Count me out";
 			cancelText.text = "No, I can do this!";
 			break;
+		case DialogueType.ACCEPT_REWARD:
+			dialogueDesc.text = "Is this the reward you want?";
+			acceptText.text = "Definately";
+			cancelText.text = "Not really...";
+			break;
 		}
 	}
 

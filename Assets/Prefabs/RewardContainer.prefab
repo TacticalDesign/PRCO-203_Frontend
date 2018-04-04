@@ -73,6 +73,10 @@ GameObject:
   - component: {fileID: 222128166473717910}
   - component: {fileID: 114192073476007292}
   - component: {fileID: 114123163672710532}
+  - component: {fileID: 114624283222920452}
+  - component: {fileID: 114414154210671888}
+  - component: {fileID: 114343610402902962}
+  - component: {fileID: 114110150294558284}
   m_Layer: 5
   m_Name: RewardContainer
   m_TagString: Untagged
@@ -97,6 +101,17 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &114110150294558284
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1315532233955148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa5bb37964e38c943af1cd2e220ef8cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114123163672710532
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -198,6 +213,46 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\xA320 Amazon Voucher"
+--- !u!114 &114343610402902962
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1315532233955148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07c4a9f137b27044dbbd781c682f1915, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  informationBoxPrefab: {fileID: 1818574642573612, guid: bcd955e5b4f60c44c8e656f747905ab4,
+    type: 2}
+  myInfoType: 0
+--- !u!114 &114414154210671888
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1315532233955148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7713b2f4f4a9cd41b0c4a3d0ced9c7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueBoxPrefab: {fileID: 1247188562844284, guid: 5ae466a8ceb45cf48aa74a2df96cc80f,
+    type: 2}
+  myDialogueType: 2
+  onPopupPageOpen: {fileID: 0}
+--- !u!114 &114624283222920452
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1315532233955148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 504ea6e23049d8c4e88f16d9a00bd151, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114733261345516320
 MonoBehaviour:
   m_ObjectHideFlags: 1

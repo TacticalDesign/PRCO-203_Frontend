@@ -103,7 +103,8 @@ public class CreateFeedItemsFromArray : MonoBehaviour {
 
 	private void MakeRewardFeedItem(string[] resource){
 		GameObject newReward = Instantiate (objectToInstantiate, itemFeedContainer.transform);
-		newReward.GetComponent<FillRewardItems> ().FillItems (resource);
+		newReward.GetComponent<FillRewardItems> ().FillItems (resource, parentScrollRect);
+		newReward.GetComponent<DummyAcceptReward>().SetRefreshScript(GetComponent<DummyRewardPage>());
 	}
 
 	public void FillFeedbackFeed(){

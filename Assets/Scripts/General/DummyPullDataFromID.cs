@@ -174,7 +174,7 @@ public static class DummyPullDataFromID {
 		"Football",
 		"Rugby",
 		"Video Games",
-		"650",
+		"2500",
 		"4"
 	};
 
@@ -183,7 +183,7 @@ public static class DummyPullDataFromID {
 	}
 
 	public static string PullPersonalRewardPoints(){
-		return personalInformation [7];
+		return personalInformation [8];
 	}
 
 	public static void UpdatePersonalInfo(string[] _newInfoArray){
@@ -229,7 +229,7 @@ public static class DummyPullDataFromID {
 		"ph1",
 		"PrawnHub Premium Membership",
 		"Premium access to our site for 30 days, no ads, no limits",
-		"999,999"
+		"999999"
 	};
 
 	private static string[][] rewards = new string[][]{
@@ -243,6 +243,23 @@ public static class DummyPullDataFromID {
 
 	public static string[][] PullRewards (){
 		return rewards;
+	}
+
+	public static void RemoveReward(string _rewardID){
+		List<string[]> newRewards = new List<string[]>();
+		foreach (string[] r in rewards) {
+			if (r [0] != _rewardID) {
+				newRewards.Add (r);
+			} else {
+				try{
+					int tempPoints = int.Parse (personalInformation [8]);
+					int removingPoints = int.Parse(r[3]);
+					tempPoints -= removingPoints;
+					personalInformation[8] = tempPoints.ToString();
+				} catch(UnityException ex){}
+			}
+		}
+		rewards = newRewards.ToArray ();
 	}
 
 	private static string[] feedback1 = new string[] {
