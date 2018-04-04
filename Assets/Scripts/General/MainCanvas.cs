@@ -141,7 +141,8 @@ public class MainCanvas : MonoBehaviour
         {
             if (secondryPanelsHidden < secondryPages.Length && timeElapsed > secondryPanelsHidden * secondryPageHidingInterval)
             {
-                secondryPages[secondryPanelsHidden].SetInteger("Show", 0);
+                //secondryPages[secondryPanelsHidden].SetInteger("Show", 0);
+				secondryPages[secondryPanelsHidden].GetComponent<OnPopupPageOpen>().ForceExit();
                 secondryPanelsHidden++;
             }
 
