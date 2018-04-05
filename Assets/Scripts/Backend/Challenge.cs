@@ -73,6 +73,17 @@
             [JsonProperty("attendees")]
             public YoungPerson[] Attendees { get; internal set; }
 
+            // Casts
+            // =====
+
+            public static explicit operator Challenge(string id)
+            {
+                return new Challenge
+                {
+                    ID = id
+                };
+            }
+
             // JSON Methods
             // ============
 

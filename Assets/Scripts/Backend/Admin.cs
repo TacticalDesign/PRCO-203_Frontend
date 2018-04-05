@@ -37,6 +37,17 @@
         [JsonIgnore]
         public Token Token { get; private set; }
 
+        // Casts
+        // =====
+
+        public static explicit operator Admin(string id)
+        {
+            return new Admin
+            {
+                ID = id
+            };
+        }
+
         // JSON Methods
         // ============
 

@@ -70,6 +70,17 @@
         [JsonIgnore]
         public Token Token { get; private set; }
 
+        // Casts
+        // =====
+
+        public static explicit operator Challenger(string id)
+        {
+            return new Challenger
+            {
+                ID = id
+            };
+        }
+
         // JSON Methods
         // ============
 

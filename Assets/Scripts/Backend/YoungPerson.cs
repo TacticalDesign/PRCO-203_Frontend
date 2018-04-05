@@ -55,6 +55,17 @@
         [JsonIgnore]
         public Token Token { get; private set; }
 
+        // Casts
+        // =====
+
+        public static explicit operator YoungPerson(string id)
+        {
+            return new YoungPerson
+            {
+                ID = id
+            };
+        }
+
         // JSON Methods
         // ============
 
