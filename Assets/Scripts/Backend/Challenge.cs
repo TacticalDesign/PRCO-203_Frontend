@@ -100,6 +100,68 @@
             // Commands
             // ========
 
+            public static async Task<Challenge> GetChallenge(string JWT, string ID)
+            {
+                //Set up the request
+                var client = new RestClient(API.BaseURL + "Challenge.php");
+                var request = new RestRequest(Method.GET);
+                request.AddHeader("Cache-Control", "no-cache");
+                request.AddHeader("Authorization", "Bearer " + JWT);
+                request.AddHeader("Content-Type", "application/x-www-form-urlencoded");
+
+                request.AddParameter("id", ID);
+
+                //Get the data async
+                IRestResponse response = await Task.Run(() =>
+                {
+                    return client.Execute(request);
+                });
+                Response<Challenge> data = Response<Challenge>.FromJson(response.Content);
+
+                //Log any errors
+                for (int i = 0; i < data.Errors.Length; i++)
+                    Debug.LogError(data.Errors[i]);
+
+                //Update and return the Challenge
+                if (data.Result.Length == 1)
+                {
+                    string result = JsonConvert.SerializeObject(data.Result[0]);
+                    return JsonConvert.DeserializeObject<Challenge>(result);
+                }
+                return null;
+            }
+
+            public async Task<bool> Update(string JWT)
+            {
+                //Set up the request
+                var client = new RestClient(API.BaseURL + "Challenge.php");
+                var request = new RestRequest(Method.GET);
+                request.AddHeader("Cache-Control", "no-cache");
+                request.AddHeader("Authorization", "Bearer " + JWT);
+                request.AddHeader("Content-Type", "application/x-www-form-urlencoded");
+
+                request.AddParameter("id", ID);
+
+                //Get the data async
+                IRestResponse response = await Task.Run(() =>
+                {
+                    return client.Execute(request);
+                });
+                Response<Challenge> data = Response<Challenge>.FromJson(response.Content);
+
+                //Log any errors
+                for (int i = 0; i < data.Errors.Length; i++)
+                    Debug.LogError(data.Errors[i]);
+
+                if (data.Result.Length == 1)
+                {
+                    string result = JsonConvert.SerializeObject(data.Result[0]);
+                    JsonConvert.PopulateObject(result, this);
+                    return true;
+                }
+                return false;
+            }
+
             public async Task<bool> EditChallenge(string JWT, string name = "", string[] skills = null, string description = "", int? reward = null,
                                                     string location1 = "", string location2 = "", string location3 = "", DateTime? closingTime = null,
                                                     int? minAttendees = null, int? maxAttendees = null)

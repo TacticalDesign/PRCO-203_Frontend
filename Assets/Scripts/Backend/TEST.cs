@@ -43,46 +43,60 @@ public class TEST : MonoBehaviour
         //chr = await a.SetChallengerFreeze(chr.ID, false);
         //Debug.Log("Is Devon Life frozen: " + chr.IsFrozen);
 
-        
+
 
         // Challenger Testing
         // ====================
 
-        Challenger c = await Challenger.Login("devonLife@tobysmith.uk", "password1");
-        Debug.Log("Logged in Challenger token: " + c.RawToken);
-        Debug.Log("Logged in Challenger name: " + c.Name);
+        //Challenger c = await Challenger.Login("devonLife@tobysmith.uk", "password1");
+        //Debug.Log("Logged in Challenger token: " + c.RawToken);
+        //Debug.Log("Logged in Challenger name: " + c.Name);
 
-        //Edit the logged in account
-        await c.EditSelf(name: "Cornwall Life");
-        Debug.Log("Logged in Challenger name: " + c.Name);
-        await c.EditSelf(name: "Devon Life");
-        Debug.Log("Logged in Challenger name: " + c.Name);
+        ////Edit the logged in account
+        //await c.EditSelf(name: "Cornwall Life");
+        //Debug.Log("Logged in Challenger name: " + c.Name);
+        //await c.EditSelf(name: "Devon Life");
+        //Debug.Log("Logged in Challenger name: " + c.Name);
 
-        //Create a Challenge
-        Challenger.Challenge c1 = await c.CreateChallenge("Article", new string[] { "arty" }, "This is a description",
-            50, "", "", "Devon", new System.DateTime(2018, 05, 06, 12, 00, 00), 1, 10);
-        Debug.Log("New challenges name: " + c1.Name);
-        Debug.Log("New challenges description: " + c1.Description);
+        ////Create a Challenge
+        //Challenger.Challenge c1 = await c.CreateChallenge("Article", new string[] { "arty" }, "This is a description",
+        //    50, "", "", "Devon", new System.DateTime(2018, 05, 06, 12, 00, 00), 1, 10);
+        //Debug.Log("New challenges name: " + c1.Name);
+        //Debug.Log("New challenges description: " + c1.Description);
 
-        //Edit the Challenge
-        await c1.EditChallenge(c.RawToken, description: "This is a new description");
-        Debug.Log("New challenges description: " + c1.Description);
-        await c1.EditChallenge(c.RawToken, description: "This is a description");
-        Debug.Log("New challenges description: " + c1.Description);
+        ////Edit the Challenge
+        //await c1.EditChallenge(c.RawToken, description: "This is a new description");
+        //Debug.Log("New challenges description: " + c1.Description);
+        //await c1.EditChallenge(c.RawToken, description: "This is a description");
+        //Debug.Log("New challenges description: " + c1.Description);
 
 
         // Young People Testing
         // ====================
 
-        //YoungPerson yp = await YoungPerson.Login("toby@tobysmith.uk", "password1");
-        //Debug.Log("Logged in young person token: " + yp.RawToken);
-        //Debug.Log("Logged in young person surname: " + yp.Surname);
+        YoungPerson yp = await YoungPerson.Login("toby@tobysmith.uk", "password1");
+        Debug.Log("Logged in young person token: " + yp.RawToken);
+        Debug.Log("Logged in young person surname: " + yp.Surname);
 
-        ////Edit the logged in account
-        //await yp.EditSelf(surname: "Jones");
-        //Debug.Log("Logged in admin surname: " + yp.Surname);
-        //await yp.EditSelf(surname: "Smith");
-        //Debug.Log("Logged in admin surname: " + yp.Surname);
+        //Edit the logged in account
+        await yp.EditSelf(surname: "Jones");
+        Debug.Log("Logged in young person surname: " + yp.Surname);
+        await yp.EditSelf(surname: "Smith");
+        Debug.Log("Logged in young person surname: " + yp.Surname);
+
+        //Get and attend a challenge
+        Challenger.Challenge c1 = await Challenger.Challenge.GetChallenge(yp.RawToken, "15217881817431");
+        Debug.Log("Found Challenge's name: " + c1.Name);
+        Debug.Log("Found Challenge's young person count: " + c1.Attendees.Length);
+        Debug.Log("Logged in young person challenges count: " + yp.CurrentChallenges.Length);
+        await yp.AttendChallenge("15217881817431", true);
+        await c1.Update(yp.RawToken);
+        Debug.Log("Found Challenge's young person count: " + c1.Attendees.Length);
+        Debug.Log("Logged in young person challenges count: " + yp.CurrentChallenges.Length);
+        await yp.AttendChallenge("15217881817431", false);
+        await c1.Update(yp.RawToken);
+        Debug.Log("Found Challenge's young person count: " + c1.Attendees.Length);
+        Debug.Log("Logged in young person challenges count: " + yp.CurrentChallenges.Length);
 
 
 #if UNITY_EDITOR
