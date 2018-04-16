@@ -9,7 +9,7 @@ public class ColouringMyChallengeButtons : MonoBehaviour {
 	private Image otherButton;
 
 	public void ChangeMyColour(){
-		GetComponent<Image> ().color = Color.gray;
-		otherButton.color = Color.white;
+		GetComponent<Image> ().color = Color.white;
+		otherButton.color = Color.grey;
 	}
 }

@@ -2585,7 +2585,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1958986581}
-        m_MethodName: ChallengerLogin
+        m_MethodName: YouthLogin
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5826,15 +5826,15 @@ Prefab:
       propertyPath: feedMaker
       value: 
       objectReference: {fileID: 67043188}
+    - target: {fileID: 1087762148820144, guid: bb72d27c5d3427f4f9f91b4cf386f9d6, type: 2}
+      propertyPath: m_Name
+      value: Upcoming/CompletedContainer
+      objectReference: {fileID: 0}
     - target: {fileID: 114012921974311912, guid: bb72d27c5d3427f4f9f91b4cf386f9d6,
         type: 2}
       propertyPath: feedMaker
       value: 
       objectReference: {fileID: 67043188}
-    - target: {fileID: 1087762148820144, guid: bb72d27c5d3427f4f9f91b4cf386f9d6, type: 2}
-      propertyPath: m_Name
-      value: Upcoming/CompletedContainer
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb72d27c5d3427f4f9f91b4cf386f9d6, type: 2}
   m_IsPrefabParent: 0
@@ -8105,7 +8105,7 @@ MonoBehaviour:
   m_Padding:
     m_Left: 0
     m_Right: 0
-    m_Top: 325
+    m_Top: 275
     m_Bottom: 150
   m_ChildAlignment: 1
   m_Spacing: -50
@@ -12995,7 +12995,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.01, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.0000005667064}
+  m_AnchoredPosition: {x: 0, y: -0.00015858334}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1530079954
