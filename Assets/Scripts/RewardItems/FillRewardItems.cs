@@ -37,4 +37,8 @@ public class FillRewardItems : MonoBehaviour {
 			GetComponent<ClickForInformationBox> ().SetupInfo ();
 		}
 	}
+
+	public string[] GetSearchData(){
+		return new string[] { rewardTitle.text, rewardPoints.text, rewardDescription.text};
+	}
 }
