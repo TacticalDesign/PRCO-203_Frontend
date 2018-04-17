@@ -16,7 +16,9 @@ public static class DummyPullDataFromID {
 		"25/05/2018",
 		"Friday 1st June 2018",
 		"DevonLife Magazine",
-		"500"
+		"500",
+		"tsmith1234",
+		"true"
 	};
 
 	private static string[] challenge2 = new string[] {
@@ -31,7 +33,9 @@ public static class DummyPullDataFromID {
 		"02/04/2018",
 		"12.30 PM till 4.30 PM",
 		"The Co-operative Group",
-		"250"
+		"250",
+		"tsmith1234",
+		"true"
 	};
 
 	private static string[] challenge3 = new string[] {
@@ -46,7 +50,9 @@ public static class DummyPullDataFromID {
 		"15/04/2018",
 		"4PM till 6PM",
 		"Mr. Jones, Torbay Residential",
-		"60"
+		"60",
+		"alee1234",
+		"true"
 	};
 
 	private static string[] challenge4 = new string[] {
@@ -61,7 +67,9 @@ public static class DummyPullDataFromID {
 		"22/03/2018",
 		"24/03/2018",
 		"Bob Weeve, Manager at Game Workshop, Torbay",
-		"150"
+		"150",
+		"alee1234",
+		"true"
 	};
 
 	private static string[] challenge5 = new string[] {
@@ -76,7 +84,26 @@ public static class DummyPullDataFromID {
 		"17/03/2018",
 		"4PM till 6PM",
 		"Mr. Jones, Torbay Residential",
-		"60"
+		"60",
+		"alee1234",
+		"true"
+	};
+
+	private static string[] challenge6 = new string[] {
+		"challenge6",
+		"true",
+		"true",
+		"Tapdancing 101",
+		"Musical",
+		"Dancing",
+		"Energetic",
+		"Try out a basic course in tapdancing and give us some feedback, to help make sure our course is set up appropriately.",
+		"17/03/2018",
+		"12PM till 3PM",
+		"Adam Lee, Tap-Dance Extrodinare",
+		"1500",
+		"alee1234",
+		"false"
 	};
 
 	private static string[][] challenges = new string[][]{
@@ -84,7 +111,8 @@ public static class DummyPullDataFromID {
 		challenge2,
 		challenge3,
 		challenge4,
-		challenge5
+		challenge5,
+		challenge6
 	};
 
 	private static string[][] returnables = new string[][]{};

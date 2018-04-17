@@ -51,6 +51,10 @@ public class CreateFeedItemsFromArray : MonoBehaviour {
 			PullFeedback ();
 			FillFeedbackFeed ();
 			break;
+		case GeneratorType.CHALLENGER_UPCOMING:
+			PullChallengerUpcoming ();
+			FillChallengerFeed ();
+			break;
 		}
 
 
@@ -68,7 +72,15 @@ public class CreateFeedItemsFromArray : MonoBehaviour {
 
 	public void FillChallengeFeed(){
 		foreach (string[] s in displayedItems) {
-			MakeNewChallengeFeedItem (s);
+			if(s[13] == "true")
+				MakeNewChallengeFeedItem (s);
+		}
+	} 
+
+	public void FillChallengerFeed(){
+		foreach (string[] s in displayedItems) {
+			if(s[12] == "true")
+				MakeNewChallengeFeedItem (s);
 		}
 	} 
 
@@ -120,5 +132,9 @@ public class CreateFeedItemsFromArray : MonoBehaviour {
 	private void MakeFeedbackItem(string[] resource){
 		GameObject newFeedback = Instantiate (objectToInstantiate, itemFeedContainer.transform);
 		newFeedback.GetComponent<FillFeedbackItems> ().FillItems (resource);
+	}
+
+	private void PullChallengerUpcoming(){
+
 	}
 }

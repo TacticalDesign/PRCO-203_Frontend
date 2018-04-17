@@ -501,6 +501,7 @@ MonoBehaviour:
   skill2: {fileID: 114469567143399110}
   skill3: {fileID: 114444404728520984}
   rewardPoints: {fileID: 114775784577164250}
+  bgColour: {fileID: 114623144678672346}
   listener: {fileID: 114060950652105066}
 --- !u!222 &222017848105023228
 CanvasRenderer:

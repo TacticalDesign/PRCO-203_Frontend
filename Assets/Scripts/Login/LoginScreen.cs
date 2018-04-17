@@ -13,6 +13,18 @@ public class LoginScreen : MonoBehaviour
     [SerializeField]
     Animator animator;
 
+	[SerializeField]
+	private Text username;
+
+	[SerializeField]
+	private InputField password;
+
+	[SerializeField]
+	private DummyChallengerLogin challLog;
+
+	[SerializeField]
+	private DummyYouthLogin youthLog;
+
     /// <summary>
     /// Login logic shared by all accounts
     /// Runs after account-specific logic
@@ -51,4 +63,16 @@ public class LoginScreen : MonoBehaviour
         mainCanvas.SetAccountType(AccountType.Admin);
         Login();
     }
+
+	public void SetupLogin(){
+		if (username.text.ToLower() == "alee1234" && password.text == "adamsucks") {
+			ChallengerLogin ();
+			//challLog.
+		} else if (username.text.ToLower() == "tsmith1234" && password.text == "iloveenums") {
+			ChallengerLogin ();
+		} else if (username.text.ToLower() == "jm12345" && password.text == "weebunited") {
+			YouthLogin ();
+			youthLog.SendID (username.text.ToLower ());
+		}
+	}
 }

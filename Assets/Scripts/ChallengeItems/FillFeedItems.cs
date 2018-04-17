@@ -17,6 +17,9 @@ public class FillFeedItems : MonoBehaviour {
 	private Text rewardPoints;
 
 	[SerializeField]
+	private Image bgColour;
+
+	[SerializeField]
 	private ClickForPopupPage listener;
 
 	public void SetupFeedItem(string[] itemData, OnPopupPageOpen _pageToOpen){
@@ -25,6 +28,12 @@ public class FillFeedItems : MonoBehaviour {
 		skill2.text = itemData [5];
 		skill3.text = itemData [6];
 		rewardPoints.text = itemData [11] + " points";
+
+		if (itemData [13] == "true") {
+			bgColour.color = Color.white;
+		} else {
+			bgColour.color = Color.red;
+		}
 
 		listener.SetResource (itemData);
 		listener.SetPageToOpen (_pageToOpen);
