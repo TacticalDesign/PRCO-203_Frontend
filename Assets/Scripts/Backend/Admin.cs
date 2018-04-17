@@ -311,5 +311,36 @@
             }
             return null;
         }
+
+        public async Task<Reward> CreateReward(string name, string description, int cost)
+        {
+            //Set up the request
+            var client = new RestClient(API.BaseURL + "Reward.php");
+            var request = new RestRequest(Method.POST);
+            request.AddHeader("Cache-Control", "no-cache");
+            request.AddHeader("Authorization", "Bearer " + RawToken);
+            request.AddHeader("Content-Type", "application/x-www-form-urlencoded");
+
+            request.AddParameter("name", name);
+            request.AddParameter("description", description);
+            request.AddParameter("cost", cost);
+
+            //Get the data async
+            IRestResponse response = await Task.Run(() =>
+            {
+                return client.Execute(request);
+            });
+            Response<Reward> data = Response<Reward>.FromJson(response.Content);
+
+            //Log any errors
+            for (int i = 0; i < data.Errors.Length; i++)
+                Debug.LogError(data.Errors[i]);
+
+            if (data.Result.Length == 1)
+            {
+                return data.Result[0];
+            }
+            return null;
+        }
     }
 }
