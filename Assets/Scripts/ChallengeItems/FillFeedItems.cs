@@ -32,7 +32,7 @@ public class FillFeedItems : MonoBehaviour {
 		if (itemData [13] == "true") {
 			bgColour.color = Color.white;
 		} else {
-			bgColour.color = Color.red;
+			bgColour.color = new Color32 (255, 174, 174, 255);
 		}
 
 		listener.SetResource (itemData);

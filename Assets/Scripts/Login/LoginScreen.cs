@@ -65,14 +65,17 @@ public class LoginScreen : MonoBehaviour
     }
 
 	public void SetupLogin(){
-		if (username.text.ToLower() == "alee1234" && password.text == "adamsucks") {
+		if (username.text.ToLower () == "alee1234" && password.text == "adamsucks") {
 			ChallengerLogin ();
-			//challLog.
-		} else if (username.text.ToLower() == "tsmith1234" && password.text == "iloveenums") {
+			challLog.SetChallengerID (username.text.ToLower ());
+		} else if (username.text.ToLower () == "tsmith1234" && password.text == "iloveenums") {
 			ChallengerLogin ();
-		} else if (username.text.ToLower() == "jm12345" && password.text == "weebunited") {
+			challLog.SetChallengerID (username.text.ToLower ());
+		} else if (username.text.ToLower () == "jm12345" && password.text == "weebunited") {
 			YouthLogin ();
 			youthLog.SendID (username.text.ToLower ());
+		} else {
+			Debug.Log ("Username/Password wrong");
 		}
 	}
 }

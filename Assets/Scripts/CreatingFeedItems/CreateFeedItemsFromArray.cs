@@ -55,6 +55,10 @@ public class CreateFeedItemsFromArray : MonoBehaviour {
 			PullChallengerUpcoming ();
 			FillChallengerFeed ();
 			break;
+		case GeneratorType.CHALLENGER_COMPLETED:
+			PullChallengerCompleted ();
+			FillChallengeFeed ();
+			break;
 		}
 
 
@@ -79,8 +83,7 @@ public class CreateFeedItemsFromArray : MonoBehaviour {
 
 	public void FillChallengerFeed(){
 		foreach (string[] s in displayedItems) {
-			if(s[12] == "true")
-				MakeNewChallengeFeedItem (s);
+			MakeNewChallengeFeedItem (s);
 		}
 	} 
 
@@ -135,6 +138,10 @@ public class CreateFeedItemsFromArray : MonoBehaviour {
 	}
 
 	private void PullChallengerUpcoming(){
+		displayedItems = DummyPullDataFromID.GetChallengerUpcoming ();
+	}
 
+	private void PullChallengerCompleted(){
+		displayedItems = DummyPullDataFromID.GetChallengerCompleted ();
 	}
 }

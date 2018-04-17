@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class DummyChallengerLogin : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+	[SerializeField]
+	private CreateFeedItemsFromArray splashPage;
+
+	public void SetChallengerID(string _ID){
+		DummyPullDataFromID.SetChallengerID (_ID);
+		splashPage.RefreshFeed ();
+		DummyPullDataFromID.SetActiveAccountType (AccountType.Challenger);
 	}
 }

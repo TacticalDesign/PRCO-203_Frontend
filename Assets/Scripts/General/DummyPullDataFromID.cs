@@ -91,8 +91,8 @@ public static class DummyPullDataFromID {
 
 	private static string[] challenge6 = new string[] {
 		"challenge6",
-		"true",
-		"true",
+		"false",
+		"false",
 		"Tapdancing 101",
 		"Musical",
 		"Dancing",
@@ -329,5 +329,99 @@ public static class DummyPullDataFromID {
 		}
 		string[] emptyArray = new string[]{ };
 		return emptyArray;
+	}
+
+	private static string challengerID = "";
+
+	private static string[] challenger1 = new string[] {
+		"alee1234",
+		"Adam Lee",
+		"alee@test.com",
+		"01245789104",
+		"For the last time, I don't give A Dam, Lee."
+	};
+
+	private static string[] challenger2 = new string[] {
+		"tsmith1234",
+		"Toby Smith",
+		"tsmythe@test.com",
+		"07177171771",
+		"To By a Smith, or not To By a Smith, that is the question."
+	};
+
+	private static string[][] challengers = new string[][]{
+		challenger1,
+		challenger2
+	};
+
+	public static void SetChallengerID(string _ID){
+		challengerID = _ID;
+	}
+
+	public static string[][] GetChallengerUpcoming(){
+		List<string[]> returnList = new List<string[]> ();
+
+		foreach (string[] challenge in challenges) {
+			if (challenge [12] == challengerID && challenge[2] == "false") {
+				returnList.Add (challenge);
+			}
+		}
+
+		return returnList.ToArray ();
+	}
+
+	public static string[][] GetChallengerCompleted(){
+		List<string[]> returnList = new List<string[]> ();
+
+		foreach (string[] challenge in challenges) {
+			if (challenge [12] == challengerID && challenge[2] == "true") {
+				returnList.Add (challenge);
+			}
+		}
+
+		return returnList.ToArray ();
+	}
+
+	public static string[] PullMyChallengerInfo(){
+		foreach (string[] s in challengers) {
+			if (s [0] == challengerID)
+				return s;
+		}
+		return new string[0];
+	}
+
+	public static string[] PullChallengerInfoByString(string _ID){
+		foreach (string[] s in challengers) {
+			if (s [0] == _ID)
+				return s;
+		}
+		return new string[0];
+	}
+
+	public static void UpdateChallengerInfo(string _ID, string[] _newDataArray){
+		for (int i = 0; i < challengers.Length; i++) {
+			if (challengers [i] [0] == _ID) {
+				challengers [i] = _newDataArray;
+			}
+		}
+	}
+
+	public static void UpdateChallengeInfo(string[] _newData){
+		for (int i = 0; i < challenges.Length; i++) {
+			if (challenges [i] [0] == _newData [0]) {
+				challenges [i] = _newData;
+				return;
+			}
+		}
+	}
+
+	private static AccountType activeAccount;
+
+	public static void SetActiveAccountType(AccountType _active){
+		activeAccount = _active;
+	}
+
+	public static AccountType GetActiveAccountType(){
+		return activeAccount;
 	}
 }
