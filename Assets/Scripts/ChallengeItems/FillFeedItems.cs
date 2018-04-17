@@ -33,4 +33,8 @@ public class FillFeedItems : MonoBehaviour {
 	public void SetListenerParent(GameObject _parent){
 		listener.SetParentPage (_parent);
 	}
+
+	public string[] GetSearchData(){
+		return new string[] { challengeName.text, skill1.text, skill2.text, skill3.text };
+	}
 }

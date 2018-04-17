@@ -192,7 +192,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &10628768
 RectTransform:
   m_ObjectHideFlags: 0
@@ -906,6 +906,7 @@ GameObject:
   - component: {fileID: 67043185}
   - component: {fileID: 67043187}
   - component: {fileID: 67043188}
+  - component: {fileID: 67043189}
   m_Layer: 5
   m_Name: Youth_MyChallenges
   m_TagString: MainPanel
@@ -995,6 +996,19 @@ MonoBehaviour:
     type: 2}
   parentScrollRect: {fileID: 73027472}
   whichItemsToPull: 1
+--- !u!114 &67043189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 67043183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 878dd7c9af1cd21478c7bd6feef40167, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  contentHolder: {fileID: 73027471}
+  searchBoxText: {fileID: 1202792430}
 --- !u!1 &73021139
 GameObject:
   m_ObjectHideFlags: 0
@@ -3094,6 +3108,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1687856651}
     m_Modifications:
+    - target: {fileID: 114807752080862038, guid: fede7a5554ed33444a0155ecd74d06b3,
+        type: 2}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 224527036856548866, guid: fede7a5554ed33444a0155ecd74d06b3,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -3198,6 +3217,31 @@ Prefab:
         type: 2}
       propertyPath: m_SelectionColor.b
       value: 0.3458045
+      objectReference: {fileID: 0}
+    - target: {fileID: 114807752080862038, guid: fede7a5554ed33444a0155ecd74d06b3,
+        type: 2}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114807752080862038, guid: fede7a5554ed33444a0155ecd74d06b3,
+        type: 2}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114807752080862038, guid: fede7a5554ed33444a0155ecd74d06b3,
+        type: 2}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1687856657}
+    - target: {fileID: 114807752080862038, guid: fede7a5554ed33444a0155ecd74d06b3,
+        type: 2}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: FilterRewards
+      objectReference: {fileID: 0}
+    - target: {fileID: 114807752080862038, guid: fede7a5554ed33444a0155ecd74d06b3,
+        type: 2}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fede7a5554ed33444a0155ecd74d06b3, type: 2}
@@ -4910,7 +4954,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &506759554
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5011,6 +5055,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1217452970}
     m_Modifications:
+    - target: {fileID: 114807752080862038, guid: fede7a5554ed33444a0155ecd74d06b3,
+        type: 2}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 224527036856548866, guid: fede7a5554ed33444a0155ecd74d06b3,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -5113,9 +5162,40 @@ Prefab:
       value: 
       objectReference: {fileID: 12800000, guid: d0fd91d532bc8b9499ec901187a06f8b,
         type: 3}
+    - target: {fileID: 114807752080862038, guid: fede7a5554ed33444a0155ecd74d06b3,
+        type: 2}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114807752080862038, guid: fede7a5554ed33444a0155ecd74d06b3,
+        type: 2}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114807752080862038, guid: fede7a5554ed33444a0155ecd74d06b3,
+        type: 2}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1217452975}
+    - target: {fileID: 114807752080862038, guid: fede7a5554ed33444a0155ecd74d06b3,
+        type: 2}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: FilterData
+      objectReference: {fileID: 0}
+    - target: {fileID: 114807752080862038, guid: fede7a5554ed33444a0155ecd74d06b3,
+        type: 2}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fede7a5554ed33444a0155ecd74d06b3, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &517983367 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114211832663550668, guid: fede7a5554ed33444a0155ecd74d06b3,
+    type: 2}
+  m_PrefabInternal: {fileID: 517983366}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &525301638
 GameObject:
   m_ObjectHideFlags: 0
@@ -7036,7 +7116,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &693023270
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9900,7 +9980,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &986503736
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11591,6 +11671,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 67043184}
     m_Modifications:
+    - target: {fileID: 114807752080862038, guid: fede7a5554ed33444a0155ecd74d06b3,
+        type: 2}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 224527036856548866, guid: fede7a5554ed33444a0155ecd74d06b3,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -11713,9 +11798,40 @@ Prefab:
       value: 
       objectReference: {fileID: 12800000, guid: d0fd91d532bc8b9499ec901187a06f8b,
         type: 3}
+    - target: {fileID: 114807752080862038, guid: fede7a5554ed33444a0155ecd74d06b3,
+        type: 2}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114807752080862038, guid: fede7a5554ed33444a0155ecd74d06b3,
+        type: 2}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114807752080862038, guid: fede7a5554ed33444a0155ecd74d06b3,
+        type: 2}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 67043189}
+    - target: {fileID: 114807752080862038, guid: fede7a5554ed33444a0155ecd74d06b3,
+        type: 2}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: FilterData
+      objectReference: {fileID: 0}
+    - target: {fileID: 114807752080862038, guid: fede7a5554ed33444a0155ecd74d06b3,
+        type: 2}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fede7a5554ed33444a0155ecd74d06b3, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1202792430 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114211832663550668, guid: fede7a5554ed33444a0155ecd74d06b3,
+    type: 2}
+  m_PrefabInternal: {fileID: 1202792429}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1205195765
 GameObject:
   m_ObjectHideFlags: 0
@@ -11829,6 +11945,12 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -1}
   m_SizeDelta: {x: 108, y: 38}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1209078058 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114211832663550668, guid: fede7a5554ed33444a0155ecd74d06b3,
+    type: 2}
+  m_PrefabInternal: {fileID: 350005495}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1217452969
 GameObject:
   m_ObjectHideFlags: 0
@@ -11841,6 +11963,7 @@ GameObject:
   - component: {fileID: 1217452971}
   - component: {fileID: 1217452974}
   - component: {fileID: 1217452973}
+  - component: {fileID: 1217452975}
   m_Layer: 5
   m_Name: Youth_ChallengeFeed
   m_TagString: MainPanel
@@ -11929,6 +12052,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a69c9ac821f3fb4c8816ef0e9741a79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1217452975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1217452969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 878dd7c9af1cd21478c7bd6feef40167, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  contentHolder: {fileID: 808529250}
+  searchBoxText: {fileID: 517983367}
 --- !u!224 &1252433293 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224735232304596832, guid: 51550fd720d19f84b98e06f3d012f132,
@@ -13641,7 +13777,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1603896649
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14694,6 +14830,7 @@ GameObject:
   - component: {fileID: 1687856654}
   - component: {fileID: 1687856655}
   - component: {fileID: 1687856656}
+  - component: {fileID: 1687856657}
   m_Layer: 5
   m_Name: Youth_Rewards
   m_TagString: MainPanel
@@ -14795,6 +14932,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rewardPoints: {fileID: 1125673885}
+--- !u!114 &1687856657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1687856650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 878dd7c9af1cd21478c7bd6feef40167, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  contentHolder: {fileID: 711202031}
+  searchBoxText: {fileID: 1209078058}
 --- !u!1 &1694432325
 GameObject:
   m_ObjectHideFlags: 0
@@ -16862,7 +17012,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 523.90796, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2050216281
