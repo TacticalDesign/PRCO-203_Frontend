@@ -2058,7 +2058,14 @@ MonoBehaviour:
   newChallengeDate: {fileID: 1621952931}
   newChallengeDeadline: {fileID: 380873023}
   newDescription: {fileID: 1422723634}
-  everything: []
+  everything:
+  - {fileID: 1394176667}
+  - {fileID: 541940641}
+  - {fileID: 229084416}
+  - {fileID: 161975507}
+  - {fileID: 1557327775}
+  - {fileID: 1008596722}
+  - {fileID: 160083159}
   challengePage: {fileID: 981245468}
 --- !u!114 &140857420
 MonoBehaviour:
@@ -5847,12 +5854,12 @@ Prefab:
     - target: {fileID: 224349654318128492, guid: 51550fd720d19f84b98e06f3d012f132,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: -1163.28
       objectReference: {fileID: 0}
     - target: {fileID: 224349654318128492, guid: 51550fd720d19f84b98e06f3d012f132,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000029266403
+      value: -0.00002715052
       objectReference: {fileID: 0}
     - target: {fileID: 224494383397537048, guid: 51550fd720d19f84b98e06f3d012f132,
         type: 2}
@@ -16359,7 +16366,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.01, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.00004521048}
+  m_AnchoredPosition: {x: 0, y: -0.00011189474}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1530079954

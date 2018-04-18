@@ -38,7 +38,7 @@ public class DummyEditChallenge : MonoBehaviour {
 	private Text newDescription;
 
 	[SerializeField]
-	private Text[] everything;
+	private InputField[] everything;
 
 	private string[] myData;
 
@@ -120,7 +120,7 @@ public class DummyEditChallenge : MonoBehaviour {
 
 	public void ClearEverything(){
 		for (int i = 0; i < everything.Length; i++) {
-			everything [i].text = "";
+			everything [i].text = null;
 		}
 	}
 }

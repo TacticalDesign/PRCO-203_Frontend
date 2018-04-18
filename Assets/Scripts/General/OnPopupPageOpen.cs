@@ -85,6 +85,7 @@ public class OnPopupPageOpen : MonoBehaviour {
 	}
 
 	private void RefreshSecondaryPage(){
+		Debug.Log (parent.name);
 		parent.GetComponent<DummyChallengeInfo> ().ResetPage ();
 	}
 
@@ -99,6 +100,7 @@ public class OnPopupPageOpen : MonoBehaviour {
 	}
 
 	private void ExitChallengerEditChallenge(){
+		parent.GetComponent<OnPopupPageOpen> ().RefreshResource ();
 		RefreshSecondaryPage ();
 		gameObject.GetComponent<DummyEditChallenge> ().ClearEverything ();
 	}
@@ -109,5 +111,9 @@ public class OnPopupPageOpen : MonoBehaviour {
 
 	public void DisableBackButton(){
 		mainBackButton.SetActiveScreen (null);
+	}
+
+	public void RefreshResource(){
+		resource = DummyPullDataFromID.PullArrayByID (resource [0]);
 	}
 }

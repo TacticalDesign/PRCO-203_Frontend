@@ -87,6 +87,7 @@ public class DummyChallengeInfo : MonoBehaviour {
 
 	public void ResetPage(){
 		string[] refresh = DummyPullDataFromID.PullArrayByID (resID);
+
 		FillData (refresh, DummyPullDataFromID.GetActiveAccountType());
 	}
 }

@@ -410,6 +410,9 @@ public static class DummyPullDataFromID {
 		for (int i = 0; i < challenges.Length; i++) {
 			if (challenges [i] [0] == _newData [0]) {
 				challenges [i] = _newData;
+				foreach (string s in challenges[i]) {
+					Debug.Log (s);
+				}
 				return;
 			}
 		}
