@@ -81,7 +81,6 @@
             {
                 return client.Execute(request);
             });
-
             TokenRequest token = TokenRequest.FromJson(response.Content);
 
             //Log any errors
@@ -224,7 +223,7 @@
             return null;
         }
 
-        public async Task<YoungPerson> SetYoungPersonFreeze(string id, bool isFrozen)
+        public async Task<YoungPerson> SetYoungPersonFreeze(YoungPerson youngPerson, bool isFrozen)
         {
             //Set up the request
             var client = new RestClient(API.BaseURL + "Admin.php");
@@ -232,7 +231,8 @@
             request.AddHeader("Cache-Control", "no-cache");
             request.AddHeader("Authorization", "Bearer " + RawToken);
             request.AddHeader("Content-Type", "application/x-www-form-urlencoded");
-            request.AddParameter("id", id);
+
+            request.AddParameter("id", youngPerson.ID);
             request.AddParameter("action", isFrozen ? "freeze" : "defrost");
 
             //Get the data async
@@ -248,9 +248,10 @@
 
             if (data.Result.Length == 1)
             {
-                return data.Result[0];
+                string result = JsonConvert.SerializeObject(data.Result[0]);
+                JsonConvert.PopulateObject(result, youngPerson);
             }
-            return null;
+            return youngPerson;
         }
 
         public async Task<Challenger> CreateChallenger(string email, string name)
@@ -283,7 +284,7 @@
             return null;
         }
 
-        public async Task<Challenger> SetChallengerFreeze(string id, bool isFrozen)
+        public async Task<Challenger> SetChallengerFreeze(Challenger challenger, bool isFrozen)
         {
             //Set up the request
             var client = new RestClient(API.BaseURL + "Admin.php");
@@ -291,7 +292,8 @@
             request.AddHeader("Cache-Control", "no-cache");
             request.AddHeader("Authorization", "Bearer " + RawToken);
             request.AddHeader("Content-Type", "application/x-www-form-urlencoded");
-            request.AddParameter("id", id);
+
+            request.AddParameter("id", challenger.ID);
             request.AddParameter("action", isFrozen ? "freeze" : "defrost");
 
             //Get the data async
@@ -307,9 +309,10 @@
 
             if (data.Result.Length == 1)
             {
-                return data.Result[0];
+                string result = JsonConvert.SerializeObject(data.Result[0]);
+                JsonConvert.PopulateObject(result, challenger);
             }
-            return null;
+            return challenger;
         }
 
         public async Task<Reward> CreateReward(string name, string description, int cost)

@@ -99,7 +99,6 @@
             {
                 return client.Execute(request);
             });
-
             TokenRequest token = TokenRequest.FromJson(response.Content);
 
             //Log any errors
@@ -189,7 +188,7 @@
             return false;
         }
 
-        public async Task<bool> AttendChallenge(string challenge, bool isAttending)
+        public async Task<bool> AttendChallenge(Challenger.Challenge challenge, bool isAttending)
         {
             //Set up the request
             var client = new RestClient(API.BaseURL + "YoungPerson.php");
@@ -198,8 +197,8 @@
             request.AddHeader("Authorization", "Bearer " + RawToken);
             request.AddHeader("Content-Type", "application/x-www-form-urlencoded");
 
-            if (challenge != "")
-                request.AddParameter("challenge", challenge);
+            if (challenge.ID != "")
+                request.AddParameter("challenge", challenge.ID);
             request.AddParameter("attending", isAttending);
 
             //Get the data async
@@ -249,6 +248,38 @@
                 return true;
             }
             return false;
+        }
+
+        public async Task<bool> ClaimReward(string rewardID)
+        {
+            //Set up the request
+            var client = new RestClient(API.BaseURL + "Reward.php");
+            var request = new RestRequest(Method.PATCH);
+            request.AddHeader("Cache-Control", "no-cache");
+            request.AddHeader("Authorization", "Bearer " + RawToken);
+            request.AddHeader("Content-Type", "application/x-www-form-urlencoded");
+
+            if (rewardID != "")
+                request.AddParameter("rewardID", rewardID);
+            request.AddParameter("youngPersonID", ID);
+
+            //Get the data async
+            IRestResponse response = await Task.Run(() =>
+            {
+                return client.Execute(request);
+            });
+            Response<Purchase> data = Response<Purchase>.FromJson(response.Content);
+
+            //Log any errors
+            for (int i = 0; i < data.Errors.Length; i++)
+                Debug.LogError(data.Errors[i]);
+
+            if (data.Result.Length == 1)
+            {
+                string result = JsonConvert.SerializeObject(data.Result[0].YoungPerson);
+                JsonConvert.PopulateObject(result, this);
+            }
+            return data.Result[0].WasSuccessful;
         }
     }
 }

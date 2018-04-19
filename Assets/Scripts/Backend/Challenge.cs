@@ -10,6 +10,9 @@
     {
         public class Challenge
         {
+            // JSON Properties
+            // ===============
+
             [JsonProperty("id")]
             public string ID { get; internal set; }
 

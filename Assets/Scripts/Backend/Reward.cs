@@ -55,5 +55,77 @@
 
         // Commands
         // ========
+
+        public async Task<bool> Edit(string JWT, string name = "", string description = "", int? cost = null)
+        {
+            //Set up the request
+            var client = new RestClient(API.BaseURL + "Reward.php");
+            var request = new RestRequest(Method.PUT);
+            request.AddHeader("Cache-Control", "no-cache");
+            request.AddHeader("Authorization", "Bearer " + JWT);
+            request.AddHeader("Content-Type", "application/x-www-form-urlencoded");
+
+            request.AddParameter("id", ID);
+
+            if (name != "")
+                request.AddParameter("name", name);
+            if (description != "")
+                request.AddParameter("description", description);
+            if (cost != null)
+                request.AddParameter("cost", cost);
+
+            //Get the data async
+            IRestResponse response = await Task.Run(() =>
+            {
+                return client.Execute(request);
+            });
+            Response<Reward> data = Response<Reward>.FromJson(response.Content);
+
+            //Log any errors
+            for (int i = 0; i < data.Errors.Length; i++)
+                Debug.LogError(data.Errors[i]);
+
+            //Update and return if successful
+            if (data.Result.Length == 1)
+            {
+                string result = JsonConvert.SerializeObject(data.Result[0]);
+                JsonConvert.PopulateObject(result, this);
+                return true;
+            }
+            return false;
+        }
+
+        public async Task<bool> ToggleFreeze(string JWT, bool isFrozen)
+        {
+            //Set up the request
+            var client = new RestClient(API.BaseURL + "Reward.php");
+            var request = new RestRequest(Method.PATCH);
+            request.AddHeader("Cache-Control", "no-cache");
+            request.AddHeader("Authorization", "Bearer " + JWT);
+            request.AddHeader("Content-Type", "application/x-www-form-urlencoded");
+
+            request.AddParameter("id", ID);
+            request.AddParameter("action", isFrozen ? "freeze" : "defrost");
+
+            //Get the data async
+            IRestResponse response = await Task.Run(() =>
+            {
+                return client.Execute(request);
+            });
+            Response<Reward> data = Response<Reward>.FromJson(response.Content);
+
+            //Log any errors
+            for (int i = 0; i < data.Errors.Length; i++)
+                Debug.LogError(data.Errors[i]);
+
+            //Update and return if successful
+            if (data.Result.Length == 1)
+            {
+                string result = JsonConvert.SerializeObject(data.Result[0]);
+                JsonConvert.PopulateObject(result, this);
+                return true;
+            }
+            return false;
+        }
     }
 }

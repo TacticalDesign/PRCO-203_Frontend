@@ -244,6 +244,7 @@
             request.AddHeader("Cache-Control", "no-cache");
             request.AddHeader("Authorization", "Bearer " + RawToken);
             request.AddHeader("Content-Type", "application/x-www-form-urlencoded");
+
             request.AddParameter("name", name);
             for (int i = 0; i < skills.Length; i++)
                 request.AddParameter("skills[]", skills[i]);
