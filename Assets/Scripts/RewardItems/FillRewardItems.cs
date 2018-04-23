@@ -18,13 +18,9 @@ public class FillRewardItems : MonoBehaviour {
 	private Font themeFont;
 
 	public void FillItems(string[] _rewardData, GameObject _parentScrollRect){
-		try{
-			themeFont = ChangeColourScheme.GetCurrentFont ();
-			foreach(FontChanger f in GetComponentsInChildren<FontChanger> ()){
-				f.ChangeMyFont (themeFont);
-			}
-		} catch(UnityException ex){
-			Debug.Log (ex);
+		themeFont = ChangeColourScheme.GetCurrentFont ();
+		foreach(FontChanger f in GetComponentsInChildren<FontChanger> ()){
+			f.ChangeMyFont (themeFont);
 		}
 
 		rewardID = _rewardData [0];
