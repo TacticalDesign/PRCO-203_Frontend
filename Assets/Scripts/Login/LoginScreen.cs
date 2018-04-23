@@ -30,8 +30,8 @@ public class LoginScreen : MonoBehaviour
     /// Runs after account-specific logic
     /// </summary>
     private void Login()
-    {
-        animator.SetTrigger("Close");
+	{
+		animator.SetTrigger("Close");
     }
 
     /// <summary>

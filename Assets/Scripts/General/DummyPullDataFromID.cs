@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public static class DummyPullDataFromID {
 
@@ -106,7 +107,7 @@ public static class DummyPullDataFromID {
 		"false"
 	};
 
-	private static string[][] challenges = new string[][]{
+	private static List<string[]> challenges = new List<string[]>{
 		challenge1,
 		challenge2,
 		challenge3,
@@ -115,16 +116,38 @@ public static class DummyPullDataFromID {
 		challenge6
 	};
 
+	private static List<Sprite> challengeImages = new List<Sprite> ();
+
+	private static Sprite testImage;
+
+	public static void SetTestImage(Sprite _newTestImage){
+		testImage = _newTestImage;
+	}
+
+	public static Sprite GetTestImage(){
+		return testImage;
+	}
+
+	public static void FillChallengeImagesWithTest(){
+		foreach (string[] s in challenges) {
+			challengeImages.Add (GetTestImage ());
+		}
+	}
+
 	private static string[][] returnables = new string[][]{};
 
+	public static void AddChallenge(string[] _newChallengeData, Sprite _challengeImage){
+		challenges.Add (_newChallengeData);
+		challengeImages.Add (_challengeImage);
+	}
 
 	public static string[] PullArrayByID(string challengeID){
-		for (int i = 0; i < challenges.Length; i++) {
+		for (int i = 0; i < challenges.Count; i++) {
 			if (challenges [i] [0] == challengeID)
 				return challenges [i];
 		}
-		string[] bob = new string[]{};
-		return bob;
+		string[] emptyArray = new string[]{};
+		return emptyArray;
 	}
 
 	public static string[][] PullFeedChallenges(){
@@ -299,9 +322,13 @@ public static class DummyPullDataFromID {
 		"ChallengeName"
 	};
 
-	private static string[][] allFeedback = new string[][]{
+	private static List<string[]> allFeedback = new List<string[]>{
 		feedback1
 	};
+
+	public static void AddFeedback(string[] _newFeedback){
+		allFeedback.Add (_newFeedback);
+	}
 
 	public static string[][] PullFeedback (){
 		List<string[]> returnables = new List<string[]> ();
@@ -407,7 +434,7 @@ public static class DummyPullDataFromID {
 	}
 
 	public static void UpdateChallengeInfo(string[] _newData){
-		for (int i = 0; i < challenges.Length; i++) {
+		for (int i = 0; i < challenges.Count; i++) {
 			if (challenges [i] [0] == _newData [0]) {
 				challenges [i] = _newData;
 				foreach (string s in challenges[i]) {
