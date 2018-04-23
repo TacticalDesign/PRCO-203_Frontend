@@ -19,23 +19,7 @@ public class LogoutScript : MonoBehaviour {
 	private int customisationIndex = 0;
 
 	public void Logout(){
-		//animator.SetTrigger("Open");
-
-		ColourChanger[] customisation = GameObject.FindObjectsOfType<ColourChanger> ();
-		foreach (ColourChanger c in customisation) {
-			c.ChangeMyColour (testColours [customisationIndex]);
-		}
-
-		FontChanger[] fontCust = GameObject.FindObjectsOfType<FontChanger> ();
-		foreach (FontChanger f in fontCust) {
-			f.ChangeMyFont (testFonts [customisationIndex]);
-		}
-
-		if (customisationIndex == testColours.Length - 1) {
-			customisationIndex = 0;
-		} else {
-			customisationIndex++;
-		}
+		animator.SetTrigger("Open");
 	}
 
 }

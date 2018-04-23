@@ -7,7 +7,7 @@ public class FontChanger : MonoBehaviour {
 
 	private Text textField;
 
-	void Start(){
+	void Awake(){
 		textField = GetComponent<Text> ();
 	}
 

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: f9d366ba2b846fe47831f2c20e997b85
-timeCreated: 1524487092
+guid: 957ca6bae59dd714084183ed840e3c97
+timeCreated: 1524492235
 licenseType: Pro
 TrueTypeFontImporter:
   externalObjects: {}
@@ -10,9 +10,9 @@ TrueTypeFontImporter:
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: Atlantis the lost City
+  fontName: Comic Jens Free Pro
   fontNames:
-  - Atlantis the lost City
+  - Comic Jens Free Pro
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

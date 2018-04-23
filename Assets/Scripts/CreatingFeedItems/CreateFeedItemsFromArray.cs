@@ -23,7 +23,7 @@ public class CreateFeedItemsFromArray : MonoBehaviour {
 
 
 	void Start(){
-		ChangeFeedDisplay (whichItemsToPull);
+		//ChangeFeedDisplay (whichItemsToPull);
 	}
 
 	public void ChangeFeedDisplay(GeneratorType _newFeedType){

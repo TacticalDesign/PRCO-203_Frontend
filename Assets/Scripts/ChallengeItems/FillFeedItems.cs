@@ -22,7 +22,14 @@ public class FillFeedItems : MonoBehaviour {
 	[SerializeField]
 	private ClickForPopupPage listener;
 
+	private Font themeFont;
+
 	public void SetupFeedItem(string[] itemData, OnPopupPageOpen _pageToOpen){
+		themeFont = ChangeColourScheme.GetCurrentFont ();
+		foreach(FontChanger f in GetComponentsInChildren<FontChanger> ()){
+			f.ChangeMyFont (themeFont);
+		}
+			
 		challengeName.text = itemData [3];
 		skill1.text = itemData [4];
 		skill2.text = itemData [5];
