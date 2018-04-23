@@ -114,7 +114,6 @@
             {
                 return client.Execute(request);
             });
-
             TokenRequest token = TokenRequest.FromJson(response.Content);
 
             //Log any errors
@@ -124,7 +123,8 @@
             Challenger newChallenger = new Challenger
             {
                 RawToken = token.Value,
-                Token = Token.FromJWT(token.Value)
+                Token = Token.FromJWT(token.Value),
+                ID = Token.FromJWT(token.Value).Pay.UserID
             };
             await newChallenger.Update();
 
@@ -134,7 +134,7 @@
         public async Task<bool> Update()
         {
             //Set up the request
-            var client = new RestClient(API.BaseURL + "Challenger.php");
+            var client = new RestClient(API.BaseURL + "Challenger.php?id=" + ID);
             var request = new RestRequest(Method.GET);
             request.AddHeader("Cache-Control", "no-cache");
             request.AddHeader("Authorization", "Bearer " + RawToken);

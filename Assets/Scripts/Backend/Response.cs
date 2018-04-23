@@ -15,7 +15,19 @@
 
         public static Response<T> FromJson(string json)
         {
-            return JsonConvert.DeserializeObject<Response<T>>(json, Backend.Converter.Settings);
+            try
+            {
+                return JsonConvert.DeserializeObject<Response<T>>(json, Backend.Converter.Settings);
+            }
+            catch
+            {
+#if UNITY_EDITOR
+                UnityEngine.Debug.LogError("Failed to convert the following into type " + typeof(T).Name + ":\n" + json);
+#else
+                System.Console.WriteLine("Failed to convert the following into type " + typeof(T).Name + ":\n" + json);
+#endif
+                return null;
+            }
         }
 
         public string ToJson()

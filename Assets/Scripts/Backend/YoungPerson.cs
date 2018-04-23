@@ -118,7 +118,7 @@
         public async Task<bool> Update()
         {
             //Set up the request
-            var client = new RestClient(API.BaseURL + "YoungPerson.php");
+            var client = new RestClient(API.BaseURL + "YoungPerson.php?id=" + ID);
             var request = new RestRequest(Method.GET);
             request.AddHeader("Cache-Control", "no-cache");
             request.AddHeader("Authorization", "Bearer " + RawToken);
@@ -280,6 +280,32 @@
                 JsonConvert.PopulateObject(result, this);
             }
             return data.Result[0].WasSuccessful;
+        }
+
+        public async Task<Challenger> GetChallenger(string ID)
+        {
+            //Set up the request
+            var client = new RestClient(API.BaseURL + "Challenger.php");
+            var request = new RestRequest(Method.GET);
+            request.AddHeader("Cache-Control", "no-cache");
+            request.AddHeader("Authorization", "Bearer " + RawToken);
+            request.AddHeader("Content-Type", "application/x-www-form-urlencoded");
+
+            //Get the data async
+            IRestResponse response = await Task.Run(() =>
+            {
+                return client.Execute(request);
+            });
+            Response<Challenger> data = Response<Challenger>.FromJson(response.Content);
+
+            //Log any errors
+            for (int i = 0; i < data.Errors.Length; i++)
+                Debug.LogError(data.Errors[i]);
+
+            //Return the challenger
+            if (data.Result.Length == 1)
+                return data.Result[0];
+            return null;
         }
     }
 }

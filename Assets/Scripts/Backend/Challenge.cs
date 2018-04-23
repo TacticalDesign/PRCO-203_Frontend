@@ -137,13 +137,11 @@
             public async Task<bool> Update(string JWT)
             {
                 //Set up the request
-                var client = new RestClient(API.BaseURL + "Challenge.php");
+                var client = new RestClient(API.BaseURL + "Challenge.php?id=" + ID);
                 var request = new RestRequest(Method.GET);
                 request.AddHeader("Cache-Control", "no-cache");
                 request.AddHeader("Authorization", "Bearer " + JWT);
                 request.AddHeader("Content-Type", "application/x-www-form-urlencoded");
-
-                request.AddParameter("id", ID);
 
                 //Get the data async
                 IRestResponse response = await Task.Run(() =>

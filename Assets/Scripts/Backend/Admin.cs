@@ -90,7 +90,8 @@
             Admin newAdmin = new Admin
             {
                 RawToken = token.Value,
-                Token = Token.FromJWT(token.Value)
+                Token = Token.FromJWT(token.Value),
+                ID = Token.FromJWT(token.Value).Pay.UserID
             };
             await newAdmin.Update();
 
@@ -100,7 +101,7 @@
         public async Task<bool> Update()
         {
             //Set up the request
-            var client = new RestClient(API.BaseURL + "Admin.php");
+            var client = new RestClient(API.BaseURL + "Admin.php?id=" + ID);
             var request = new RestRequest(Method.GET);
             request.AddHeader("Cache-Control", "no-cache");
             request.AddHeader("Authorization", "Bearer " + RawToken);
