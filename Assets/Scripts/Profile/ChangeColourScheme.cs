@@ -5,6 +5,12 @@ using UnityEngine.UI;
 
 public class ChangeColourScheme : MonoBehaviour {
 
+	// Colours for themes:
+	//
+	// Splash: ff4949ff
+	// Lavendar: a08ff9ff
+	// Autumn: f2b262ff
+
 	[SerializeField]
 	private Image themeColour;
 
@@ -33,6 +39,7 @@ public class ChangeColourScheme : MonoBehaviour {
 
 	public void SelectColour(){
 		colourSelector.SetActive (true);
+		colourSelector.GetComponent<ColourSelector> ().SetParent (this);
 	}
 
 	public void ChangeTheme(int _themeIndex){
@@ -47,14 +54,8 @@ public class ChangeColourScheme : MonoBehaviour {
 		}
 
 		s_currentFont = themeFonts [_themeIndex];
-
 		themeTitle.text = themeTitles [_themeIndex];
-
-		if (themeColours [_themeIndex] == Color.white) {
-			themeColour.color = new Color32 (255, 73, 73, 1);
-		} else {
-			themeColour.color = themeColours [_themeIndex];
-		}
+		themeColour.color = themeColours [_themeIndex];
 
 		currentThemeIndex = _themeIndex;
 	}

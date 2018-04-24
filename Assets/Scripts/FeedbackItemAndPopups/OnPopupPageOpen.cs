@@ -76,6 +76,10 @@ public class OnPopupPageOpen : MonoBehaviour {
 			gameObject.GetComponent<DummyEditChallenge> ().FillData (resource);
 			triggerExitEvent = new exitEvent (ExitChallengerEditChallenge);
 			break;
+		case PageType.CHALLENGER_NEW_CHALLENGE:
+			gameObject.GetComponent<DummyAddChallenge> ().SetupPage ();
+			triggerExitEvent = new exitEvent (RefreshMasterPage);
+			break;
 		}
 		anim.SetInteger ("Show", 1);
 	}

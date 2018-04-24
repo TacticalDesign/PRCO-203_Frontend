@@ -216,6 +216,19 @@ public static class DummyPullDataFromID {
 		temp [_arrayPos] = _newValue;
 	}
 
+
+	public static string GenerateNewChallengeID(){
+		return "challenge" + (challenges.Count + 1).ToString ();
+	}
+
+
+
+
+	//////////////////////////////////////////////////////// Personal Information //////////////////////////////////////////////
+
+
+
+
 	private static string[] personalInformation = new string[]{
 		"jm12345",
 		"Jesse McDonald",

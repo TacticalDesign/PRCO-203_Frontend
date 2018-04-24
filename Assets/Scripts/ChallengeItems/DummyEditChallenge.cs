@@ -23,19 +23,19 @@ public class DummyEditChallenge : MonoBehaviour {
 	private Text description;
 
 	[SerializeField]
-	private Text newChallengeTitle;
+	private InputField newChallengeTitle;
 	[SerializeField]
-	private Text newSkill1;
+	private InputField newSkill1;
 	[SerializeField]
-	private Text newSkill2;
+	private InputField newSkill2;
 	[SerializeField]
-	private Text newSkill3;
+	private InputField newSkill3;
 	[SerializeField]
-	private Text newChallengeDate;
+	private InputField newChallengeDate;
 	[SerializeField]
-	private Text newChallengeDeadline;
+	private InputField newChallengeDeadline;
 	[SerializeField]
-	private Text newDescription;
+	private InputField newDescription;
 
 	[SerializeField]
 	private InputField[] everything;

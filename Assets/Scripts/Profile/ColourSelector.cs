@@ -7,6 +7,10 @@ public class ColourSelector : MonoBehaviour {
 	[SerializeField]
 	private ChangeColourScheme parent;
 
+	public void SetParent(ChangeColourScheme _parent){
+		parent = _parent;
+	}
+
 	public void SelectTheme(int _themeSelected){
 		parent.ChangeTheme (_themeSelected);
 		gameObject.SetActive (false);
