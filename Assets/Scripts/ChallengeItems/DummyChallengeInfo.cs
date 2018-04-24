@@ -76,9 +76,9 @@ public class DummyChallengeInfo : MonoBehaviour {
 		foreach (GameObject g in DisplayButtons) {
 			g.SetActive (false);
 		}
-		if (_resource [13] == "true") {
+		if (_resource [13] == "true" && DummyPullDataFromID.HasChallengeBeenAccepted(_resource[0]) && _resource [2] == "false") {
 			DisplayButtons [4].SetActive (true);
-			//DisplayButtons [4].GetComponent<ChallengeViewFeedbackButton> ().SetChallengeID (resID);
+			DisplayButtons [4].GetComponent<ClickForPopupPage> ().SetResource (_resource);
 		}
 
 		DisplayButtons [3].SetActive (true);

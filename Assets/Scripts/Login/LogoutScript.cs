@@ -5,20 +5,27 @@ using UnityEngine;
 public class LogoutScript : MonoBehaviour {
 
 	[SerializeField]
-	private MainCanvas mainCanvas;
+	private GameObject mainBackButton;
+
+	[SerializeField]
+	private LoginScreen loginScript;
 
 	[SerializeField]
 	private Animator animator;
 
-	[SerializeField]
-	private Color[] testColours;
-
-	[SerializeField]
-	private Font[] testFonts;
-
 	private int customisationIndex = 0;
 
 	public void Logout(){
+		loginScript.ClearFields ();
+
+		if (mainBackButton.activeSelf == true) {
+			mainBackButton.GetComponent<MainBackButton> ().BackToPrevPage ();
+		}
+
+		if (mainBackButton.activeSelf == true) {
+			mainBackButton.GetComponent<MainBackButton> ().BackToPrevPage ();
+		}
+
 		animator.SetTrigger("Open");
 	}
 

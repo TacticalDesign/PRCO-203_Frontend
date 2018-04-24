@@ -49,7 +49,7 @@ public class OnPopupPageOpen : MonoBehaviour {
 
 	public void ForceExit(){
 		if(currentlyOpen)
-			mainBackButton.backToPrevPage ();
+			mainBackButton.BackToPrevPage ();
 	}
 
 	private void FillData(){
@@ -79,6 +79,10 @@ public class OnPopupPageOpen : MonoBehaviour {
 		case PageType.CHALLENGER_NEW_CHALLENGE:
 			gameObject.GetComponent<DummyAddChallenge> ().SetupPage ();
 			triggerExitEvent = new exitEvent (RefreshMasterPage);
+			break;
+		case PageType.CHALLENGER_LEAVE_FEEDBACK:
+			gameObject.GetComponent<LeaveFeedback> ().FillData (resource, DummyPullDataFromID.PullPersonalInformation ()[0]);
+			triggerExitEvent = new exitEvent (RefreshSecondaryPage);
 			break;
 		}
 		anim.SetInteger ("Show", 1);

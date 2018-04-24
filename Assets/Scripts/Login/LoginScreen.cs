@@ -14,7 +14,7 @@ public class LoginScreen : MonoBehaviour
     Animator animator;
 
 	[SerializeField]
-	private Text username;
+	private InputField username;
 
 	[SerializeField]
 	private InputField password;
@@ -33,6 +33,14 @@ public class LoginScreen : MonoBehaviour
 	{
 		animator.SetTrigger("Close");
     }
+
+	/// <summary>
+	/// Clears the username and password input fields
+	/// </summary>
+	public void ClearFields(){
+		username.text = "";
+		password.text = "";
+	}
 
     /// <summary>
     /// Login logic specific to the youth account

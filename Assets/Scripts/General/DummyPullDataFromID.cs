@@ -5,6 +5,14 @@ using UnityEngine.UI;
 
 public static class DummyPullDataFromID {
 
+
+	//////////////////////////////////////////////////////// Challenges //////////////////////////////////////////////
+
+
+
+
+
+
 	private static string[] challenge1 = new string[] {
 		"challenge1",
 		"false",
@@ -205,7 +213,7 @@ public static class DummyPullDataFromID {
 	}
 
 	public static void UpdateData(string _resID, int _arrayPos, string _newValue){
-		string[] temp = new string[11];
+		string[] temp = new string[0];
 
 		foreach (string[] s in challenges) {
 			if (s [0] == _resID) {
@@ -216,9 +224,15 @@ public static class DummyPullDataFromID {
 		temp [_arrayPos] = _newValue;
 	}
 
-
 	public static string GenerateNewChallengeID(){
 		return "challenge" + (challenges.Count + 1).ToString ();
+	}
+
+	public static void MarkChallengeAsComplete(string _challengeID){
+		foreach (string[] s in challenges) {
+			if (s [0] == _challengeID)
+				s [2] = "true";
+		}
 	}
 
 
@@ -231,15 +245,23 @@ public static class DummyPullDataFromID {
 
 	private static string[] personalInformation = new string[]{
 		"jm12345",
-		"Jesse McDonald",
-		"Artistic",
-		"Musical",
-		"Creative",
-		"Football",
-		"Rugby",
-		"Video Games",
+		"Jake Morgan",
+		"'Pro-Grammin",
+		"Creeaytuve Raitin",
+		"Engrish",
+		"Vudio Geims",
+		"Su'er 'Ero's",
+		"Moosick",
 		"2500",
 		"4"
+	};
+
+	private static List<string> acceptedChallenges = new List<string>{
+		challenge4[0]
+	};
+
+	private static string[][] allUsers = new string[][]{
+		personalInformation
 	};
 
 	public static string[] PullPersonalInformation(){
@@ -253,6 +275,42 @@ public static class DummyPullDataFromID {
 	public static void UpdatePersonalInfo(string[] _newInfoArray){
 		personalInformation = _newInfoArray;
 	}
+
+	public static string[] PullYouthInfoByID(string _ID){
+		foreach (string[] s in allUsers) {
+			if (s [0] == _ID) {
+				return s;
+			}
+		}
+		string[] emptyString = new string[0];
+		return emptyString;
+	}
+
+	public static void AddToAcceptedChallenges(string _challengeID){
+		acceptedChallenges.Add (_challengeID);
+	}
+
+	public static void RemoveFromAcceptedChallenges(string _challengeID){
+		acceptedChallenges.Remove (_challengeID);
+	}
+
+	public static bool HasChallengeBeenAccepted(string _challengeID){
+		foreach (string s in acceptedChallenges) {
+			if (s == _challengeID)
+				return true;
+		}
+		return false;
+	}
+
+	public static string[] GetAcceptedChallenges(){
+		return acceptedChallenges.ToArray();
+	}
+
+
+	//////////////////////////////////////////////////////// Rewards //////////////////////////////////////////////
+
+
+
 
 	private static string[] reward1 = new string[] {
 		"amazon10",
@@ -326,6 +384,13 @@ public static class DummyPullDataFromID {
 		rewards = newRewards.ToArray ();
 	}
 
+
+	//////////////////////////////////////////////////////// Feedback //////////////////////////////////////////////
+
+
+
+
+
 	private static string[] feedback1 = new string[] {
 		"challenge5",
 		"jm12345",
@@ -341,6 +406,10 @@ public static class DummyPullDataFromID {
 
 	public static void AddFeedback(string[] _newFeedback){
 		allFeedback.Add (_newFeedback);
+
+		Debug.Log ("allFeedback");
+		foreach(string[] s in allFeedback)
+			Debug.Log (s);
 	}
 
 	public static string[][] PullFeedback (){
@@ -353,6 +422,14 @@ public static class DummyPullDataFromID {
 				returnables.Add (f);
 			}
 		}
+
+		Debug.Log ("allFeedback");
+		foreach(string[] s in allFeedback)
+			Debug.Log (s);
+
+		Debug.Log ("returnables");
+		foreach(string[] s in returnables)
+			Debug.Log (s);
 
 		return returnables.ToArray();
 	}
@@ -370,6 +447,14 @@ public static class DummyPullDataFromID {
 		string[] emptyArray = new string[]{ };
 		return emptyArray;
 	}
+
+
+	//////////////////////////////////////////////////////// Challenger //////////////////////////////////////////////
+
+
+
+
+
 
 	private static string challengerID = "";
 
@@ -457,6 +542,14 @@ public static class DummyPullDataFromID {
 			}
 		}
 	}
+
+
+	//////////////////////////////////////////////////////// Active Account Type //////////////////////////////////////////////
+
+
+
+
+
 
 	private static AccountType activeAccount;
 
