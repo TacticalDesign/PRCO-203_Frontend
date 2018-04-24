@@ -12,6 +12,7 @@ public class DummyAcceptChallenge : MonoBehaviour {
 	public void AcceptChallenge(){
 		if (resource != null) {
 			DummyPullDataFromID.UpdateData (resource [0], 1, "true");
+			DummyPullDataFromID.AddToAcceptedChallenges (resource [0]);
 		} else {
 			Debug.Log ("Resource empty @ DummyAcceptChallenge");
 		}

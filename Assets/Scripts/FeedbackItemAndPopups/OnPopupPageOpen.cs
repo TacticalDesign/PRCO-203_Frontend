@@ -49,23 +49,40 @@ public class OnPopupPageOpen : MonoBehaviour {
 
 	public void ForceExit(){
 		if(currentlyOpen)
-			mainBackButton.backToPrevPage ();
+			mainBackButton.BackToPrevPage ();
 	}
 
 	private void FillData(){
 		switch (pageType) {
 		case PageType.CHALLENGER_PROFILE:
-			gameObject.GetComponent<DummyChallengerProfile> ().FillData (resource);
+			gameObject.GetComponent<DummyChallengerProfile> ().FillInformation (resource[12]);
 			triggerExitEvent = new exitEvent(RefreshSecondaryPage);
 			break;
 		case PageType.CHALLENGE_INFO:
-			gameObject.GetComponent<DummyChallengeInfo> ().FillData(resource);
+			gameObject.GetComponent<DummyChallengeInfo> ().FillData(resource, DummyPullDataFromID.GetActiveAccountType());
 			triggerExitEvent = new exitEvent(RefreshMasterPage);
 			break;
 		case PageType.EDIT_PROFILE:
 			gameObject.GetComponent<DummyEditInformation> ().FillData (resource);
 			gameObject.GetComponent<DummyEditInformation> ().ToggleSavebutton (true);
 			triggerExitEvent = new exitEvent(ExitEditProfile);
+			break;
+		case PageType.CHALLENGER_EDIT_PROFILE:
+			gameObject.GetComponent<DummyEditChallengerProfile> ().FillData (resource);
+			gameObject.GetComponent<DummyEditChallengerProfile> ().ToggleSavebutton (true);
+			triggerExitEvent = new exitEvent(ExitChallengerEditProfile);
+			break;
+		case PageType.CHALLENGER_EDIT_CHALLENGE:
+			gameObject.GetComponent<DummyEditChallenge> ().FillData (resource);
+			triggerExitEvent = new exitEvent (ExitChallengerEditChallenge);
+			break;
+		case PageType.CHALLENGER_NEW_CHALLENGE:
+			gameObject.GetComponent<DummyAddChallenge> ().SetupPage ();
+			triggerExitEvent = new exitEvent (RefreshMasterPage);
+			break;
+		case PageType.CHALLENGER_LEAVE_FEEDBACK:
+			gameObject.GetComponent<LeaveFeedback> ().FillData (resource, DummyPullDataFromID.PullPersonalInformation ()[0]);
+			triggerExitEvent = new exitEvent (RefreshSecondaryPage);
 			break;
 		}
 		anim.SetInteger ("Show", 1);
@@ -76,6 +93,7 @@ public class OnPopupPageOpen : MonoBehaviour {
 	}
 
 	private void RefreshSecondaryPage(){
+		Debug.Log (parent.name);
 		parent.GetComponent<DummyChallengeInfo> ().ResetPage ();
 	}
 
@@ -84,11 +102,26 @@ public class OnPopupPageOpen : MonoBehaviour {
 		gameObject.GetComponent<DummyEditInformation> ().CancelChanges ();
 	}
 
+	private void ExitChallengerEditProfile(){
+		gameObject.GetComponent<DummyEditChallengerProfile> ().ToggleSavebutton (false);
+		gameObject.GetComponent<DummyEditChallengerProfile> ().CancelChanges ();
+	}
+
+	private void ExitChallengerEditChallenge(){
+		parent.GetComponent<OnPopupPageOpen> ().RefreshResource ();
+		RefreshSecondaryPage ();
+		gameObject.GetComponent<DummyEditChallenge> ().ClearEverything ();
+	}
+
 	public void EnableBackButton(){
 		mainBackButton.SetActiveScreen (gameObject);
 	}
 
 	public void DisableBackButton(){
 		mainBackButton.SetActiveScreen (null);
+	}
+
+	public void RefreshResource(){
+		resource = DummyPullDataFromID.PullArrayByID (resource [0]);
 	}
 }

@@ -1,8 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public static class DummyPullDataFromID {
+
+
+	//////////////////////////////////////////////////////// Challenges //////////////////////////////////////////////
+
+
+
+
+
 
 	private static string[] challenge1 = new string[] {
 		"challenge1",
@@ -16,7 +25,9 @@ public static class DummyPullDataFromID {
 		"25/05/2018",
 		"Friday 1st June 2018",
 		"DevonLife Magazine",
-		"500"
+		"500",
+		"tsmith1234",
+		"true"
 	};
 
 	private static string[] challenge2 = new string[] {
@@ -31,7 +42,9 @@ public static class DummyPullDataFromID {
 		"02/04/2018",
 		"12.30 PM till 4.30 PM",
 		"The Co-operative Group",
-		"250"
+		"250",
+		"tsmith1234",
+		"true"
 	};
 
 	private static string[] challenge3 = new string[] {
@@ -46,7 +59,9 @@ public static class DummyPullDataFromID {
 		"15/04/2018",
 		"4PM till 6PM",
 		"Mr. Jones, Torbay Residential",
-		"60"
+		"60",
+		"alee1234",
+		"true"
 	};
 
 	private static string[] challenge4 = new string[] {
@@ -61,7 +76,9 @@ public static class DummyPullDataFromID {
 		"22/03/2018",
 		"24/03/2018",
 		"Bob Weeve, Manager at Game Workshop, Torbay",
-		"150"
+		"150",
+		"alee1234",
+		"true"
 	};
 
 	private static string[] challenge5 = new string[] {
@@ -76,27 +93,69 @@ public static class DummyPullDataFromID {
 		"17/03/2018",
 		"4PM till 6PM",
 		"Mr. Jones, Torbay Residential",
-		"60"
+		"60",
+		"alee1234",
+		"true"
 	};
 
-	private static string[][] challenges = new string[][]{
+	private static string[] challenge6 = new string[] {
+		"challenge6",
+		"false",
+		"false",
+		"Tapdancing 101",
+		"Musical",
+		"Dancing",
+		"Energetic",
+		"Try out a basic course in tapdancing and give us some feedback, to help make sure our course is set up appropriately.",
+		"17/03/2018",
+		"12PM till 3PM",
+		"Adam Lee, Tap-Dance Extrodinare",
+		"1500",
+		"alee1234",
+		"false"
+	};
+
+	private static List<string[]> challenges = new List<string[]>{
 		challenge1,
 		challenge2,
 		challenge3,
 		challenge4,
-		challenge5
+		challenge5,
+		challenge6
 	};
+
+	private static List<Sprite> challengeImages = new List<Sprite> ();
+
+	private static Sprite testImage;
+
+	public static void SetTestImage(Sprite _newTestImage){
+		testImage = _newTestImage;
+	}
+
+	public static Sprite GetTestImage(){
+		return testImage;
+	}
+
+	public static void FillChallengeImagesWithTest(){
+		foreach (string[] s in challenges) {
+			challengeImages.Add (GetTestImage ());
+		}
+	}
 
 	private static string[][] returnables = new string[][]{};
 
+	public static void AddChallenge(string[] _newChallengeData, Sprite _challengeImage){
+		challenges.Add (_newChallengeData);
+		challengeImages.Add (_challengeImage);
+	}
 
 	public static string[] PullArrayByID(string challengeID){
-		for (int i = 0; i < challenges.Length; i++) {
+		for (int i = 0; i < challenges.Count; i++) {
 			if (challenges [i] [0] == challengeID)
 				return challenges [i];
 		}
-		string[] bob = new string[]{};
-		return bob;
+		string[] emptyArray = new string[]{};
+		return emptyArray;
 	}
 
 	public static string[][] PullFeedChallenges(){
@@ -154,7 +213,7 @@ public static class DummyPullDataFromID {
 	}
 
 	public static void UpdateData(string _resID, int _arrayPos, string _newValue){
-		string[] temp = new string[11];
+		string[] temp = new string[0];
 
 		foreach (string[] s in challenges) {
 			if (s [0] == _resID) {
@@ -165,17 +224,44 @@ public static class DummyPullDataFromID {
 		temp [_arrayPos] = _newValue;
 	}
 
+	public static string GenerateNewChallengeID(){
+		return "challenge" + (challenges.Count + 1).ToString ();
+	}
+
+	public static void MarkChallengeAsComplete(string _challengeID){
+		foreach (string[] s in challenges) {
+			if (s [0] == _challengeID)
+				s [2] = "true";
+		}
+	}
+
+
+
+
+	//////////////////////////////////////////////////////// Personal Information //////////////////////////////////////////////
+
+
+
+
 	private static string[] personalInformation = new string[]{
 		"jm12345",
-		"Jesse McDonald",
-		"Artistic",
-		"Musical",
-		"Creative",
-		"Football",
-		"Rugby",
-		"Video Games",
+		"Jake Morgan",
+		"'Pro-Grammin",
+		"Creeaytuve Raitin",
+		"Engrish",
+		"Vudio Geims",
+		"Su'er 'Ero's",
+		"Moosick",
 		"2500",
 		"4"
+	};
+
+	private static List<string> acceptedChallenges = new List<string>{
+		challenge4[0]
+	};
+
+	private static string[][] allUsers = new string[][]{
+		personalInformation
 	};
 
 	public static string[] PullPersonalInformation(){
@@ -189,6 +275,42 @@ public static class DummyPullDataFromID {
 	public static void UpdatePersonalInfo(string[] _newInfoArray){
 		personalInformation = _newInfoArray;
 	}
+
+	public static string[] PullYouthInfoByID(string _ID){
+		foreach (string[] s in allUsers) {
+			if (s [0] == _ID) {
+				return s;
+			}
+		}
+		string[] emptyString = new string[0];
+		return emptyString;
+	}
+
+	public static void AddToAcceptedChallenges(string _challengeID){
+		acceptedChallenges.Add (_challengeID);
+	}
+
+	public static void RemoveFromAcceptedChallenges(string _challengeID){
+		acceptedChallenges.Remove (_challengeID);
+	}
+
+	public static bool HasChallengeBeenAccepted(string _challengeID){
+		foreach (string s in acceptedChallenges) {
+			if (s == _challengeID)
+				return true;
+		}
+		return false;
+	}
+
+	public static string[] GetAcceptedChallenges(){
+		return acceptedChallenges.ToArray();
+	}
+
+
+	//////////////////////////////////////////////////////// Rewards //////////////////////////////////////////////
+
+
+
 
 	private static string[] reward1 = new string[] {
 		"amazon10",
@@ -262,6 +384,13 @@ public static class DummyPullDataFromID {
 		rewards = newRewards.ToArray ();
 	}
 
+
+	//////////////////////////////////////////////////////// Feedback //////////////////////////////////////////////
+
+
+
+
+
 	private static string[] feedback1 = new string[] {
 		"challenge5",
 		"jm12345",
@@ -271,9 +400,17 @@ public static class DummyPullDataFromID {
 		"ChallengeName"
 	};
 
-	private static string[][] allFeedback = new string[][]{
+	private static List<string[]> allFeedback = new List<string[]>{
 		feedback1
 	};
+
+	public static void AddFeedback(string[] _newFeedback){
+		allFeedback.Add (_newFeedback);
+
+		Debug.Log ("allFeedback");
+		foreach(string[] s in allFeedback)
+			Debug.Log (s);
+	}
 
 	public static string[][] PullFeedback (){
 		List<string[]> returnables = new List<string[]> ();
@@ -285,6 +422,14 @@ public static class DummyPullDataFromID {
 				returnables.Add (f);
 			}
 		}
+
+		Debug.Log ("allFeedback");
+		foreach(string[] s in allFeedback)
+			Debug.Log (s);
+
+		Debug.Log ("returnables");
+		foreach(string[] s in returnables)
+			Debug.Log (s);
 
 		return returnables.ToArray();
 	}
@@ -301,5 +446,118 @@ public static class DummyPullDataFromID {
 		}
 		string[] emptyArray = new string[]{ };
 		return emptyArray;
+	}
+
+
+	//////////////////////////////////////////////////////// Challenger //////////////////////////////////////////////
+
+
+
+
+
+
+	private static string challengerID = "";
+
+	private static string[] challenger1 = new string[] {
+		"alee1234",
+		"Adam Lee",
+		"alee@test.com",
+		"01245789104",
+		"For the last time, I don't give A Dam, Lee."
+	};
+
+	private static string[] challenger2 = new string[] {
+		"tsmith1234",
+		"Toby Smith",
+		"tsmythe@test.com",
+		"07177171771",
+		"To By a Smith, or not To By a Smith, that is the question."
+	};
+
+	private static string[][] challengers = new string[][]{
+		challenger1,
+		challenger2
+	};
+
+	public static void SetChallengerID(string _ID){
+		challengerID = _ID;
+	}
+
+	public static string[][] GetChallengerUpcoming(){
+		List<string[]> returnList = new List<string[]> ();
+
+		foreach (string[] challenge in challenges) {
+			if (challenge [12] == challengerID && challenge[2] == "false") {
+				returnList.Add (challenge);
+			}
+		}
+
+		return returnList.ToArray ();
+	}
+
+	public static string[][] GetChallengerCompleted(){
+		List<string[]> returnList = new List<string[]> ();
+
+		foreach (string[] challenge in challenges) {
+			if (challenge [12] == challengerID && challenge[2] == "true") {
+				returnList.Add (challenge);
+			}
+		}
+
+		return returnList.ToArray ();
+	}
+
+	public static string[] PullMyChallengerInfo(){
+		foreach (string[] s in challengers) {
+			if (s [0] == challengerID)
+				return s;
+		}
+		return new string[0];
+	}
+
+	public static string[] PullChallengerInfoByString(string _ID){
+		foreach (string[] s in challengers) {
+			if (s [0] == _ID)
+				return s;
+		}
+		return new string[0];
+	}
+
+	public static void UpdateChallengerInfo(string _ID, string[] _newDataArray){
+		for (int i = 0; i < challengers.Length; i++) {
+			if (challengers [i] [0] == _ID) {
+				challengers [i] = _newDataArray;
+			}
+		}
+	}
+
+	public static void UpdateChallengeInfo(string[] _newData){
+		for (int i = 0; i < challenges.Count; i++) {
+			if (challenges [i] [0] == _newData [0]) {
+				challenges [i] = _newData;
+				foreach (string s in challenges[i]) {
+					Debug.Log (s);
+				}
+				return;
+			}
+		}
+	}
+
+
+	//////////////////////////////////////////////////////// Active Account Type //////////////////////////////////////////////
+
+
+
+
+
+
+	private static AccountType activeAccount;
+
+	public static void SetActiveAccountType(AccountType _active){
+		activeAccount = _active;
+	}
+
+	public static AccountType GetActiveAccountType(){
+		return activeAccount;
 	}
 }

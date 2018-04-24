@@ -32,7 +32,7 @@ public class DummyChallengeInfo : MonoBehaviour {
 
 	private string resID;
 
-	public void FillData(string[] _resource){
+	public void FillData(string[] _resource, AccountType _viewChallengePageType){
 		resID = _resource [0];
 
 		challengeTitle.text = _resource [3];
@@ -45,11 +45,16 @@ public class DummyChallengeInfo : MonoBehaviour {
 		challengerName.text = _resource [10];
 
 		listener.SetResource (_resource);
+		if (_viewChallengePageType == AccountType.Youth) {
+			SortYouthButtons (_resource);
+		} else if (_viewChallengePageType == AccountType.Challenger) {
+			SortChallengerButtons (_resource);
+		} else if (_viewChallengePageType == AccountType.Admin) {
 
-		SortButtons (_resource);
+		}
 	}
 
-	public void SortButtons(string[] _resource){
+	public void SortYouthButtons(string[] _resource){
 		foreach (GameObject g in DisplayButtons) {
 			g.SetActive (false);
 		}
@@ -63,10 +68,26 @@ public class DummyChallengeInfo : MonoBehaviour {
 			DisplayButtons [0].SetActive (true);
 			DisplayButtons [0].GetComponent<DummyAcceptChallenge> ().SetResource (_resource);
 		}
+
+		DisplayButtons [5].SetActive (true);
+	}
+
+	public void SortChallengerButtons(string[] _resource){
+		foreach (GameObject g in DisplayButtons) {
+			g.SetActive (false);
+		}
+		if (_resource [13] == "true" && DummyPullDataFromID.HasChallengeBeenAccepted(_resource[0]) && _resource [2] == "false") {
+			DisplayButtons [4].SetActive (true);
+			DisplayButtons [4].GetComponent<ClickForPopupPage> ().SetResource (_resource);
+		}
+
+		DisplayButtons [3].SetActive (true);
+		DisplayButtons [3].GetComponent<ClickForPopupPage> ().SetResource (_resource);
 	}
 
 	public void ResetPage(){
 		string[] refresh = DummyPullDataFromID.PullArrayByID (resID);
-		FillData (refresh);
+
+		FillData (refresh, DummyPullDataFromID.GetActiveAccountType());
 	}
 }

@@ -14,7 +14,14 @@ public class FillFeedbackItems : MonoBehaviour {
 
 	private string[] feedbackData;
 
+	private Font themeFont;
+
 	public void FillItems(string[] _resource){
+		themeFont = ChangeColourScheme.GetCurrentFont ();
+		foreach(FontChanger f in GetComponentsInChildren<FontChanger> ()){
+			f.ChangeMyFont (themeFont);
+		}
+
 		feedbackData = _resource;
 
 		feedbackDescription.text = feedbackData [2];

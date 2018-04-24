@@ -50,7 +50,10 @@ public class MainCanvas : MonoBehaviour
     [SerializeField]
     float secondryPageHidingInterval;
 
-    private void Start()
+	/// <summary>
+	/// On starting this instance, enables the Login Screen, to ensure that even if the screen has been disabled in the editor, it will still show.
+	/// </summary>
+    void Start()
     {
         loginScreen.SetActive(true);
     }

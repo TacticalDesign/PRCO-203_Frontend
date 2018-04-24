@@ -23,7 +23,6 @@ public class OnClickHandler : MonoBehaviour, IPointerDownHandler, IPointerClickH
 			toBeTriggeredReward = gameObject.GetComponent<FillRewardItems>();
 		} catch (UnityException ex){
 		}
-
 	}
 
 	public void OnPointerDown (PointerEventData ev){

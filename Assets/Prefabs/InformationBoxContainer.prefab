@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 224737189746015500}
   - component: {fileID: 222177345173680272}
   - component: {fileID: 114030718094674966}
+  - component: {fileID: 114633766131962270}
   m_Layer: 5
   m_Name: CancelText
   m_TagString: Untagged
@@ -73,6 +74,7 @@ GameObject:
   - component: {fileID: 224064853160802494}
   - component: {fileID: 222620498148953144}
   - component: {fileID: 114547530455883986}
+  - component: {fileID: 114998533674611808}
   m_Layer: 5
   m_Name: Description
   m_TagString: Untagged
@@ -208,6 +210,17 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: La de dah de dah...
+--- !u!114 &114633766131962270
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1001367181248112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e3e6336118e5f44830379874ea8714, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114636017849474536
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -354,6 +367,17 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114998533674611808
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1515145587769270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e3e6336118e5f44830379874ea8714, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!222 &222066450110290454
 CanvasRenderer:
   m_ObjectHideFlags: 1

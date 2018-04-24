@@ -13,14 +13,34 @@ public class LoginScreen : MonoBehaviour
     [SerializeField]
     Animator animator;
 
+	[SerializeField]
+	private InputField username;
+
+	[SerializeField]
+	private InputField password;
+
+	[SerializeField]
+	private DummyChallengerLogin challLog;
+
+	[SerializeField]
+	private DummyYouthLogin youthLog;
+
     /// <summary>
     /// Login logic shared by all accounts
     /// Runs after account-specific logic
     /// </summary>
     private void Login()
-    {
-        animator.SetTrigger("Close");
+	{
+		animator.SetTrigger("Close");
     }
+
+	/// <summary>
+	/// Clears the username and password input fields
+	/// </summary>
+	public void ClearFields(){
+		username.text = "";
+		password.text = "";
+	}
 
     /// <summary>
     /// Login logic specific to the youth account
@@ -51,4 +71,19 @@ public class LoginScreen : MonoBehaviour
         mainCanvas.SetAccountType(AccountType.Admin);
         Login();
     }
+
+	public void SetupLogin(){
+		if (username.text.ToLower () == "alee1234" && password.text == "adamsucks") {
+			ChallengerLogin ();
+			challLog.SetChallengerID (username.text.ToLower ());
+		} else if (username.text.ToLower () == "tsmith1234" && password.text == "iloveenums") {
+			ChallengerLogin ();
+			challLog.SetChallengerID (username.text.ToLower ());
+		} else if (username.text.ToLower () == "jm12345" && password.text == "weebunited") {
+			YouthLogin ();
+			youthLog.SendID (username.text.ToLower ());
+		} else {
+			Debug.Log ("Username/Password wrong");
+		}
+	}
 }

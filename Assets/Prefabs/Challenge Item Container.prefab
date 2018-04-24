@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 224576124883683222}
   - component: {fileID: 222464795168093474}
   - component: {fileID: 114469567143399110}
+  - component: {fileID: 114432796195956034}
   m_Layer: 5
   m_Name: Sk2Text
   m_TagString: Untagged
@@ -55,6 +56,7 @@ GameObject:
   - component: {fileID: 224773381480435690}
   - component: {fileID: 222606086696754284}
   - component: {fileID: 114444404728520984}
+  - component: {fileID: 114407545867937508}
   m_Layer: 5
   m_Name: Sk3Text
   m_TagString: Untagged
@@ -127,6 +129,7 @@ GameObject:
   - component: {fileID: 224777964760353696}
   - component: {fileID: 222248075015083380}
   - component: {fileID: 114775784577164250}
+  - component: {fileID: 114045168982164536}
   m_Layer: 5
   m_Name: RewardPoints
   m_TagString: Untagged
@@ -144,6 +147,7 @@ GameObject:
   - component: {fileID: 224412856017481526}
   - component: {fileID: 222017848105023228}
   - component: {fileID: 114445437689881646}
+  - component: {fileID: 114106778050099696}
   m_Layer: 5
   m_Name: Sk1Text
   m_TagString: Untagged
@@ -161,6 +165,7 @@ GameObject:
   - component: {fileID: 224013920958273042}
   - component: {fileID: 222725186432528986}
   - component: {fileID: 114801560142588068}
+  - component: {fileID: 114342685738662664}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -168,6 +173,17 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &114045168982164536
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1841412529415374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e3e6336118e5f44830379874ea8714, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114060950652105066
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -182,6 +198,17 @@ MonoBehaviour:
   pageType: 0
   pageToOpen: {fileID: 0}
   parentPage: {fileID: 0}
+--- !u!114 &114106778050099696
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1884992434878372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e3e6336118e5f44830379874ea8714, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114163877889503550
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -228,6 +255,39 @@ MonoBehaviour:
   m_FlexibleWidth: 1
   m_FlexibleHeight: 1
   m_LayoutPriority: 1
+--- !u!114 &114342685738662664
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1947686610201530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e3e6336118e5f44830379874ea8714, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114407545867937508
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1457822310373126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e3e6336118e5f44830379874ea8714, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114432796195956034
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1084401130971796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e3e6336118e5f44830379874ea8714, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114444404728520984
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -501,6 +561,7 @@ MonoBehaviour:
   skill2: {fileID: 114469567143399110}
   skill3: {fileID: 114444404728520984}
   rewardPoints: {fileID: 114775784577164250}
+  bgColour: {fileID: 114623144678672346}
   listener: {fileID: 114060950652105066}
 --- !u!222 &222017848105023228
 CanvasRenderer:

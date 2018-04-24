@@ -12,6 +12,7 @@ public class DummyOptOut : MonoBehaviour {
 	public void OptOut(){
 		if (resource != null) {
 			DummyPullDataFromID.UpdateData (resource [0], 1, "false");
+			DummyPullDataFromID.RemoveFromAcceptedChallenges (resource [0]);
 		} else {
 			Debug.Log ("Resource empty @ DummyOptOut");
 		}

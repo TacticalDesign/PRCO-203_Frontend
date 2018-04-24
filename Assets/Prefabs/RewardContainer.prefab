@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 224837671585790432}
   - component: {fileID: 222973030270494330}
   - component: {fileID: 114733261345516320}
+  - component: {fileID: 114957774874409274}
   m_Layer: 5
   m_Name: Description
   m_TagString: Untagged
@@ -55,6 +56,7 @@ GameObject:
   - component: {fileID: 224853099162886136}
   - component: {fileID: 222754289156433082}
   - component: {fileID: 114963388007103380}
+  - component: {fileID: 114789041414160334}
   m_Layer: 5
   m_Name: PointsCost
   m_TagString: Untagged
@@ -94,6 +96,7 @@ GameObject:
   - component: {fileID: 224605747821034062}
   - component: {fileID: 222315840913829002}
   - component: {fileID: 114287433376022628}
+  - component: {fileID: 114020277473411788}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -101,6 +104,17 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &114020277473411788
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1556726434800114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e3e6336118e5f44830379874ea8714, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114110150294558284
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -286,6 +300,28 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1.55
   m_Text: This voucher can be used at any valid Amazon outlet
+--- !u!114 &114789041414160334
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1277499804651482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e3e6336118e5f44830379874ea8714, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114957774874409274
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1205853207677564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e3e6336118e5f44830379874ea8714, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114963388007103380
 MonoBehaviour:
   m_ObjectHideFlags: 1
