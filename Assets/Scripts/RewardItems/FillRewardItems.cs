@@ -11,6 +11,8 @@ public class FillRewardItems : MonoBehaviour {
 	private Text rewardDescription;
 	[SerializeField]
 	private Text rewardPoints;
+	[SerializeField]
+	private Image rewardImage;
 
 	private string rewardID;
 	private int rewardCost;
@@ -28,6 +30,9 @@ public class FillRewardItems : MonoBehaviour {
 		rewardDescription.text = _rewardData [2];
 		rewardPoints.text = _rewardData [3];
 		rewardCost = int.Parse(_rewardData [3]);
+
+		rewardImage.sprite = DummyPullDataFromID.GetRewardImage (_rewardData [0]);
+
 		GetComponent<OnClickHandler> ().SetParentScrollRect (_parentScrollRect);
 	}
 

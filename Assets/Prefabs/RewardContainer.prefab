@@ -140,6 +140,7 @@ MonoBehaviour:
   rewardTitle: {fileID: 114287433376022628}
   rewardDescription: {fileID: 114733261345516320}
   rewardPoints: {fileID: 114963388007103380}
+  rewardImage: {fileID: 114215720167084788}
 --- !u!114 &114192073476007292
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -409,8 +410,8 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1315532233955148}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224121617551788984}

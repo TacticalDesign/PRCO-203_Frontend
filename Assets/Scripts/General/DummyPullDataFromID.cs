@@ -13,6 +13,8 @@ public static class DummyPullDataFromID {
 
 
 
+	/*
+
 	private static string[] challenge1 = new string[] {
 		"challenge1",
 		"false",
@@ -115,16 +117,109 @@ public static class DummyPullDataFromID {
 		"false"
 	};
 
+*/
+
+	private static string[] challenge1 = new string[] {
+		"challenge1",
+		"false",
+		"false",
+		"Produce An Event",
+		"Organising",
+		"Art",
+		"Performing",
+		"We're putting on an event for creative young people. Help us do it!",
+		"Friday 7th September 2018",
+		"All Day",
+		"Ash, Annoshka & Lucas from Dead Pencils",
+		"500",
+		"thedeadpencils",
+		"true"
+	};
+
+	private static string[] challenge2 = new string[] {
+		"challenge2",
+		"false",
+		"false",
+		"Big Music Festival",
+		"Phototgraphy",
+		"Writing",
+		"Video",
+		"We're looking for vloggers, writers and photographers for a massive festival in Plymouth.",
+		"Friday 20th July 2018",
+		"All Day",
+		"Jenny Bishop; Marketing Manager at RIO",
+		"1200",
+		"rio",
+		"true"
+	};
+
+	private static string[] challenge3 = new string[] {
+		"challenge3",
+		"false",
+		"false",
+		"Content For Magazine",
+		"Photoshop",
+		"Illustrations",
+		"Video",
+		"We want people to create cool content for our magazine.",
+		"Every Month",
+		"Repeats Monthly",
+		"Lisa Gardner, Director at Wonder Associates",
+		"1000",
+		"wonderassociates",
+		"true"
+	};
+
+	private static string[] challenge4 = new string[] {
+		"challenge4",
+		"false",
+		"false",
+		"Help Other Young People",
+		"Coaching",
+		"Artistic",
+		"Friendly",
+		"Can you help young people complete their Arts Award Cirtificate?.",
+		"Every Month",
+		"Repeats Monthly",
+		"Carmen de Silva; Play Torbay",
+		"800",
+		"carmendesilva",
+		"true"
+	};
+
 	private static List<string[]> challenges = new List<string[]>{
 		challenge1,
 		challenge2,
 		challenge3,
-		challenge4,
-		challenge5,
-		challenge6
+		challenge4
 	};
 
 	private static List<Sprite> challengeImages = new List<Sprite> ();
+
+	public static void AddNewChallengeImage(Sprite _newSprite){
+		challengeImages.Add (_newSprite);
+	}
+
+	public static void SetChallengeImage(Sprite _newSprite, string _challengeID){
+		for (int s = 0; s < challenges.Count; s++) {
+			if (challenges [s] [0] == _challengeID) {
+				if (challengeImages.Count - 1 >= s){
+					challengeImages [s] = _newSprite;
+				}
+				else
+					challengeImages.Add(_newSprite);
+			}
+		}
+	}
+
+	public static Sprite GetChallengeImage(string _challengeID){
+		for (int s = 0; s < challenges.Count; s++) {
+			if (challenges [s] [0] == _challengeID) {
+				return challengeImages [s];
+			}
+		}
+		return GetTestImage ();
+	}
 
 	private static Sprite testImage;
 
@@ -134,12 +229,6 @@ public static class DummyPullDataFromID {
 
 	public static Sprite GetTestImage(){
 		return testImage;
-	}
-
-	public static void FillChallengeImagesWithTest(){
-		foreach (string[] s in challenges) {
-			challengeImages.Add (GetTestImage ());
-		}
 	}
 
 	private static string[][] returnables = new string[][]{};
@@ -313,45 +402,53 @@ public static class DummyPullDataFromID {
 
 
 	private static string[] reward1 = new string[] {
-		"amazon10",
-		"£10 Amazon Voucher",
-		"Redeemable at any valid Amazon outlet",
-		"1000"
+		"artsSilver",
+		"Silver Arts Award",
+		"Counts as a GCSE! Only 1 of these awards redeemable per account.",
+		"6000"
 	};
 
 	private static string[] reward2 = new string[] {
-		"amazon20",
-		"£20 Amazon Voucher",
-		"Redeemable at any valid Amazon outlet",
-		"1800"
+		"artsGold",
+		"Gold Arts Award",
+		"The same as an A-Level. Adds to your UCAS points! Only 1 of these awards redeemable per account.",
+		"15000"
 	};
 
 	private static string[] reward3 = new string[] {
-		"game10",
-		"£10 Game.co.uk Voucher",
-		"Redeemable in Game.co.uk stores or on the website",
-		"1000"
-	};
-
-	private static string[] reward4 = new string[] {
-		"tesco50off",
-		"50% Off at Tescos",
-		"50% off your next £30 shop, only valid in-store",
+		"edenProjectFamily",
+		"Eden Project Tickets",
+		"Free Family Pass to the Eden Project. Have a nice family day out, and learn more about Eden.",
 		"1200"
 	};
 
-	private static string[] reward5 = new string[] {
-		"audible1",
-		"Free Audible E-Book",
-		"Claim any book in our vast library for free",
-		"800"
+	private static string[] reward4 = new string[] {
+		"oceanCityBastille",
+		"Bastille Tickets",
+		"Free tickets to see Bastille in Plymouth! What are you waiting for!?",
+		"2100"
 	};
 
+	private static string[] reward5 = new string[] {
+		"rioQualification",
+		"Business Qualification",
+		"Qualification for Social Enterprise. Show the world the skills you've learnt with us!",
+		"15000"
+	};
+
+
 	private static string[] reward6 = new string[] {
-		"ph1",
-		"PrawnHub Premium Membership",
-		"Premium access to our site for 30 days, no ads, no limits",
-		"999999"
+		"wonderGraphicClass",
+		"Free Graphics Design Class",
+		"Become a pro with training from Wonder's world-class designers!",
+		"1250"
+	};
+
+	private static string[] reward7 = new string[] {
+		"parkour3x1H",
+		"Free Parkour Sessions",
+		"Learn Freerunning with 3x 1 Hour Parkour sessions. Make the city yours!",
+		"750"
 	};
 
 	private static string[][] rewards = new string[][]{
@@ -360,8 +457,36 @@ public static class DummyPullDataFromID {
 		reward3,
 		reward4,
 		reward5,
-		reward6
+		reward6,
+		reward7
 	};
+
+	private static List<Sprite> rewardImages = new List<Sprite> ();
+
+	public static void AddNewRewardImage(Sprite _newSprite){
+		rewardImages.Add (_newSprite);
+	}
+
+	public static void SetRewardImage(Sprite _newSprite, string _rewardID){
+		for (int s = 0; s < rewards.Length; s++) {
+			if (rewards [s] [0] == _rewardID) {
+				if (rewardImages.Count - 1 >= s){
+					rewardImages [s] = _newSprite;
+				}
+				else
+					rewardImages.Add(_newSprite);
+			}
+		}
+	}
+
+	public static Sprite GetRewardImage(string _rewardsID){
+		for (int s = 0; s < rewards.Length; s++) {
+			if (rewards [s] [0] == _rewardsID) {
+				return rewardImages [s];
+			}
+		}
+		return GetTestImage ();
+	}
 
 	public static string[][] PullRewards (){
 		return rewards;
@@ -391,25 +516,21 @@ public static class DummyPullDataFromID {
 
 
 
-	private static string[] feedback1 = new string[] {
+	/*private static string[] feedback1 = new string[] {
 		"challenge5",
 		"jm12345",
 		"Hello Jesse my old friend. I've come to review you again. Because the old folk softly creeping, left good reviews while I was sleeping. And the average, of all those voices shared, when prepared, was 4/5.",
 		"4",
 		"FeedbackGiver",
 		"ChallengeName"
-	};
+	};*/
 
 	private static List<string[]> allFeedback = new List<string[]>{
-		feedback1
+		//feedback1
 	};
 
 	public static void AddFeedback(string[] _newFeedback){
 		allFeedback.Add (_newFeedback);
-
-		Debug.Log ("allFeedback");
-		foreach(string[] s in allFeedback)
-			Debug.Log (s);
 	}
 
 	public static string[][] PullFeedback (){
@@ -422,14 +543,6 @@ public static class DummyPullDataFromID {
 				returnables.Add (f);
 			}
 		}
-
-		Debug.Log ("allFeedback");
-		foreach(string[] s in allFeedback)
-			Debug.Log (s);
-
-		Debug.Log ("returnables");
-		foreach(string[] s in returnables)
-			Debug.Log (s);
 
 		return returnables.ToArray();
 	}
@@ -459,25 +572,111 @@ public static class DummyPullDataFromID {
 	private static string challengerID = "";
 
 	private static string[] challenger1 = new string[] {
-		"alee1234",
-		"Adam Lee",
-		"alee@test.com",
+		"thedeadpencils",
+		"The Dead Pencils",
+		"deadpencils@rio.org",
 		"01245789104",
-		"For the last time, I don't give A Dam, Lee."
+		"Do YOU have what it takes to take on the challenge of RUNNING \"Dead Pencils\"?\n" +
+		"If You think you're up for it, whatch out for challenges from our group.\n" + 
+		"If you kick butt on our challenges - you can be part of the Dead Pencils Managers."
 	};
 
 	private static string[] challenger2 = new string[] {
-		"tsmith1234",
-		"Toby Smith",
-		"tsmythe@test.com",
+		"rio",
+		"RIO - Real Ideas Organisation",
+		"contact@rio.org",
+		"012356473736",
+		"RIO wants to make the world a much better place through Social Enterprise.\n" +
+		"We believe that young people can change the world!\n" + 
+		"Do you think you could run your own projects and even start your own business?\n" +
+		"If you want to help us make a huge impact - watch this space!"
+	};
+
+	private static string[] challenger3 = new string[] {
+		"katefarmery",
+		"Kate Farmery",
+		"Kate@Farmery.me",
 		"07177171771",
-		"To By a Smith, or not To By a Smith, that is the question."
+		"Kate is the person in charge of Arts and Culture for the whole of Torbay!\n" +
+		"If an opportunity with Torbay Culture ever comes up - it's a really big deal."
+	};
+
+	private static string[] challenger4 = new string[] {
+		"theshorelymagazine",
+		"The Shorely Magazine",
+		"contactus@shorely.com",
+		"0121565783",
+		"The Shorely Magazine is Torbay's own insiders guide to cool creative events in Torbay.\n" +
+		"If you like gigs, performances and art in general, you need to be involved!\n" +
+		"The Shorely has loads of challenges for you to create vlogs, take photos, write articles, or review shows."
+	};
+
+	private static string[] challenger5 = new string[] {
+		"jacobbrandon",
+		"Jacob Brandon",
+		"jacob@artizangallery.co.uk",
+		"0783546374",
+		"Jacob is a young person - but he already runs his own art gallery!\n" +
+		"He's got lots of projects coming up to help create a space for young artists in Torbay."
+	};
+
+	private static string[] challenger6 = new string[] {
+		"carmendesilva",
+		"Carmen De Silva",
+		"carmen@playtorbay.org",
+		"0783374836",
+		"Carmen is Comms and Liason Officer at Play Torbay.\n" +
+		"Play Torbay runs the Play Parks at Fort Appache (Torquay), Indigos Go Wild (Brixham) and Wild Foxes (Paignton).\n" +
+		"She Knows loads about marketing and loads of people around Torbay.\n" +
+		"Carmen is always looking out for opportunities for young people to shine."
+	};
+
+	private static string[] challenger7 = new string[] {
+		"wonderassociates",
+		"Wonder Associates",
+		"Lisa.Gardiner@wonderassociates.com",
+		"0783736908",
+		"Wonder is one of the coolest creative companies in the whole of Torbay!\n" +
+		"They've done amazing work for some of the biggest brands in the world, like Reebok!\n" +
+		"If you're into graphic design, branding, fashion, photography, or Film - Contact Lisa!"
 	};
 
 	private static string[][] challengers = new string[][]{
 		challenger1,
-		challenger2
+		challenger2,
+		challenger3,
+		challenger4,
+		challenger5,
+		challenger6,
+		challenger7
 	};
+
+	private static List<Sprite> challengerProfileImages = new List<Sprite> ();
+
+	public static void AddNewChallengerProfileImage(Sprite _newSprite){
+		challengerProfileImages.Add (_newSprite);
+	}
+
+	public static void SetChallengerProfileImage(Sprite _newSprite, string _challengerID){
+		for (int s = 0; s < challengers.Length; s++) {
+			if (challengers [s] [0] == _challengerID) {
+				if (challengerProfileImages.Count - 1 >= s){
+					challengerProfileImages [s] = _newSprite;
+				}
+				else
+					challengerProfileImages.Add(_newSprite);
+			}
+		}
+	}
+
+	public static Sprite GetChallengerProfileImage(string _challengerID){
+		for (int s = 0; s < challengers.Length; s++) {
+			if (challengers [s] [0] == _challengerID) {
+				return challengerProfileImages [s];
+			}
+		}
+		return GetTestImage ();
+	}
 
 	public static void SetChallengerID(string _ID){
 		challengerID = _ID;

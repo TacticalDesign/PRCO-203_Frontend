@@ -73,17 +73,55 @@ public class LoginScreen : MonoBehaviour
     }
 
 	public void SetupLogin(){
-		if (username.text.ToLower () == "alee1234" && password.text == "adamsucks") {
-			ChallengerLogin ();
-			challLog.SetChallengerID (username.text.ToLower ());
-		} else if (username.text.ToLower () == "tsmith1234" && password.text == "iloveenums") {
-			ChallengerLogin ();
-			challLog.SetChallengerID (username.text.ToLower ());
-		} else if (username.text.ToLower () == "jm12345" && password.text == "weebunited") {
-			YouthLogin ();
-			youthLog.SendID (username.text.ToLower ());
-		} else {
-			Debug.Log ("Username/Password wrong");
+		switch (username.text.ToLower ()) {
+		case "thedeadpencils":
+			if (password.text == "password") {
+				ChallengerLogin ();
+				challLog.SetChallengerID (username.text.ToLower ());
+			}
+			break;
+		case "rio":
+			if (password.text == "password") {
+				ChallengerLogin ();
+				challLog.SetChallengerID (username.text.ToLower ());
+			}
+			break;
+		case "katefarmery":
+			if (password.text == "password") {
+				ChallengerLogin ();
+				challLog.SetChallengerID (username.text.ToLower ());
+			}
+			break;
+		case "theshorelymagazine":
+			if (password.text == "password") {
+				ChallengerLogin ();
+				challLog.SetChallengerID (username.text.ToLower ());
+			}
+			break;
+		case "jacobbrandon":
+			if (password.text == "password") {
+				ChallengerLogin ();
+				challLog.SetChallengerID (username.text.ToLower ());
+			}
+			break;
+		case "carmendesilva":
+			if (password.text == "password") {
+				ChallengerLogin ();
+				challLog.SetChallengerID (username.text.ToLower ());
+			}
+			break;
+		case "wonderassociates":
+			if (password.text == "password") {
+				ChallengerLogin ();
+				challLog.SetChallengerID (username.text.ToLower ());
+			}
+			break;
+		case "jm12345":
+			if (password.text == "password") {
+				YouthLogin ();
+				youthLog.SendID (username.text.ToLower ());
+			}
+			break;
 		}
 	}
 }
