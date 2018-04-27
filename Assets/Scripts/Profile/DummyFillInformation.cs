@@ -55,13 +55,25 @@ public class DummyFillInformation : MonoBehaviour {
 		fillInformationID = _myID;
 	}
 
+    /// <summary>
+    /// Counts the value displayed for the users points up to the correct value
+    /// from an offset
+    /// </summary>
+    /// <param name="points">The value to count up to</param>
+    /// <returns>IEnumerator</returns>
     private IEnumerator CountUp(int points)
     {
-        float startingOffset = 35f;
-        for (int i = (int) startingOffset; i >= 0; i--)
+        int startingOffset = 35;
+
+        //Move the offset if the starting point is less than 0
+        if (points - startingOffset < 0)
+            startingOffset = points;
+
+        //Increment the value over time
+        for (int i = startingOffset; i >= 0; i--)
         {
             rewardPoints.text = "Reward Points: " + (points - i);
-            float wait = Mathf.Lerp(0.2f, 0.01f, i / startingOffset);
+            float wait = Mathf.Lerp(0.2f, 0.01f, i / (float) startingOffset);
             yield return new WaitForSeconds(wait);
         }
     }
