@@ -102,6 +102,8 @@ public class DummyFillInformation : MonoBehaviour {
             float wait = Mathf.Lerp(0.1f, 0.01f, i / startingOffset);
             yield return new WaitForSeconds(wait);
         }
+
+        //Set the maximum value to hide any float rounding errors
         avgFeedback.text = "Average Rating: " + rating.ToString("F1") + " / 5";
     }
 }
