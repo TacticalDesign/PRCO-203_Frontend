@@ -65,14 +65,22 @@ public class MainCanvas : MonoBehaviour
     {
         throw new Exception("Not developed yet!");
     }
-    
+
     /// <summary>
-    /// Sets the title label on the title bar
+    /// Lerps a string between two values
     /// </summary>
-    /// <param name="newTitle">The new title to show</param>
-    public void SetTitle(string newTitle)
+    /// <param name="oldText">The old text to no longer show</param>
+    /// <param name="newText">The new text to now show</param>
+    /// <param name="t">The percentage value (0-1) to lerp to</param>
+    public string LerpString(string oldText, string newText, float t)
     {
-        title.text = newTitle;
+        t = Mathf.Clamp01(t);
+
+        int oldLength = (int)(oldText.Length - (oldText.Length * t));
+        int newLength = (int)(newText.Length - (newText.Length * t));
+
+        string result = oldText.Substring(0, oldLength) + " " + newText.Substring(newLength);
+        return result;
     }
 
     /// <summary>
@@ -140,6 +148,9 @@ public class MainCanvas : MonoBehaviour
 
         float timeStep = transitionSmoothness;//The length of coroutine frames in seconds
         float duration = transitionDuration;//Duration of coroutine in seconds
+
+        string oldTitleText = title.text;
+
         while (timeElapsed < duration)
         {
             if (secondryPanelsHidden < secondryPages.Length && timeElapsed > secondryPanelsHidden * secondryPageHidingInterval)
@@ -155,6 +166,10 @@ public class MainCanvas : MonoBehaviour
                 //... update their anchor X positions
                 SetHorizontalAnchor(ref panels[i], timeStep, distance, duration);
             }
+
+            //Then set the new title
+            title.text = LerpString(oldTitleText, titleMessage, timeElapsed / duration);
+
             timeElapsed += timeStep;
             yield return new WaitForSecondsRealtime(timeStep);
         }
@@ -166,8 +181,7 @@ public class MainCanvas : MonoBehaviour
             panels[i].anchorMax = new Vector2(Mathf.RoundToInt(panels[i].anchorMax.x), 0.88f);
         }
 
-        //Then set the new title
-        SetTitle(titleMessage);
+        title.text = titleMessage;
     }
 
     /// <summary>
