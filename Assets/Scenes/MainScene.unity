@@ -1673,7 +1673,7 @@ RectTransform:
   m_GameObject: {fileID: 76858236}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.00032, y: 1.00032, z: 1.00032}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1078785036}
   m_Father: {fileID: 62794619}
@@ -1725,6 +1725,7 @@ MonoBehaviour:
   mainCanvas: {fileID: 495991892}
   accountType: 1
   panelNumber: 1
+  margin: {fileID: 1078785036}
   titleMessage: My Profile
 --- !u!114 &76858240
 MonoBehaviour:
@@ -2895,8 +2896,8 @@ RectTransform:
   m_Father: {fileID: 1601498855}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.2, y: 0.2}
-  m_AnchorMax: {x: 0.8, y: 0.9}
+  m_AnchorMin: {x: 0.1, y: 0.1}
+  m_AnchorMax: {x: 0.9, y: 0.9}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3495,6 +3496,7 @@ MonoBehaviour:
   mainCanvas: {fileID: 495991892}
   accountType: 2
   panelNumber: 2
+  margin: {fileID: 0}
   titleMessage: Activity Feed
 --- !u!114 &212130798
 MonoBehaviour:
@@ -11013,6 +11015,7 @@ MonoBehaviour:
   mainCanvas: {fileID: 495991892}
   accountType: 0
   panelNumber: 2
+  margin: {fileID: 1900123836}
   titleMessage: Rewards
 --- !u!114 &641942112
 MonoBehaviour:
@@ -11845,8 +11848,8 @@ RectTransform:
   m_Father: {fileID: 1591273062}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.2, y: 0.2}
-  m_AnchorMax: {x: 0.8, y: 0.9}
+  m_AnchorMin: {x: 0.1, y: 0.1}
+  m_AnchorMax: {x: 0.9, y: 0.9}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -13337,6 +13340,7 @@ MonoBehaviour:
   mainCanvas: {fileID: 495991892}
   accountType: 2
   panelNumber: 3
+  margin: {fileID: 0}
   titleMessage: User Accounts
 --- !u!114 &809582841
 MonoBehaviour:
@@ -16556,7 +16560,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -20.880005, y: 0}
+  m_SizeDelta: {x: -55.119995, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1017213633
 MonoBehaviour:
@@ -16884,6 +16888,7 @@ MonoBehaviour:
   mainCanvas: {fileID: 495991892}
   accountType: 2
   panelNumber: 0
+  margin: {fileID: 0}
   titleMessage: Challenge Feed
 --- !u!114 &1043504732
 MonoBehaviour:
@@ -17257,8 +17262,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.1, y: 0.1}
   m_AnchorMax: {x: 0.9, y: 0.9}
-  m_AnchoredPosition: {x: 0, y: 10.5}
-  m_SizeDelta: {x: -108, y: -19}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1081937027
 GameObject:
@@ -18562,7 +18567,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -20.880005, y: 0}
+  m_SizeDelta: {x: -55.119995, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1187129000
 MonoBehaviour:
@@ -18986,8 +18991,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.1, y: 0.1}
   m_AnchorMax: {x: 0.9, y: 0.9}
-  m_AnchoredPosition: {x: 0, y: -1}
-  m_SizeDelta: {x: 108, y: 38}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1209078058 stripped
 MonoBehaviour:
@@ -20788,6 +20793,7 @@ MonoBehaviour:
   mainCanvas: {fileID: 495991892}
   accountType: 2
   panelNumber: 1
+  margin: {fileID: 0}
   titleMessage: Rewards
 --- !u!114 &1436042433
 MonoBehaviour:
@@ -22441,6 +22447,7 @@ MonoBehaviour:
   mainCanvas: {fileID: 495991892}
   accountType: 0
   panelNumber: 3
+  margin: {fileID: 698353928}
   titleMessage: My Profile
 --- !u!114 &1591273064
 MonoBehaviour:
@@ -22601,6 +22608,7 @@ MonoBehaviour:
   mainCanvas: {fileID: 495991892}
   accountType: 0
   panelNumber: 0
+  margin: {fileID: 167332463}
   titleMessage: Challenge Feed
 --- !u!114 &1601498857
 MonoBehaviour:
@@ -22931,7 +22939,7 @@ RectTransform:
   m_GameObject: {fileID: 1612096084}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.00032, y: 1.00032, z: 1.00032}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1205729801}
   m_Father: {fileID: 62794619}
@@ -22983,6 +22991,7 @@ MonoBehaviour:
   mainCanvas: {fileID: 495991892}
   accountType: 1
   panelNumber: 0
+  margin: {fileID: 1205729801}
   titleMessage: My Challenges
 --- !u!114 &1612096088
 MonoBehaviour:
@@ -24765,7 +24774,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 524.87823, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1745525205
@@ -24986,7 +24995,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -20.880005, y: 0}
+  m_SizeDelta: {x: -55.119995, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1758360771
 MonoBehaviour:
@@ -26776,14 +26785,14 @@ RectTransform:
   m_GameObject: {fileID: 1862526792}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.00032, y: 1.00032, z: 1.00032}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1187128999}
   m_Father: {fileID: 1987177729}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.2, y: 0.2}
-  m_AnchorMax: {x: 0.8, y: 0.9}
+  m_AnchorMin: {x: 0.1, y: 0.1}
+  m_AnchorMax: {x: 0.9, y: 0.9}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -27457,14 +27466,14 @@ RectTransform:
   m_GameObject: {fileID: 1900123835}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.00032, y: 1.00032, z: 1.00032}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1758360770}
   m_Father: {fileID: 641942110}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.2, y: 0.2}
-  m_AnchorMax: {x: 0.8, y: 0.9}
+  m_AnchorMin: {x: 0.1, y: 0.1}
+  m_AnchorMax: {x: 0.9, y: 0.9}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -27876,7 +27885,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -20.880005, y: 0}
+  m_SizeDelta: {x: -55.119995, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1953558039
 MonoBehaviour:
@@ -28587,6 +28596,7 @@ MonoBehaviour:
   mainCanvas: {fileID: 495991892}
   accountType: 0
   panelNumber: 1
+  margin: {fileID: 1862526793}
   titleMessage: My Challenges
 --- !u!114 &1987177731
 MonoBehaviour:
