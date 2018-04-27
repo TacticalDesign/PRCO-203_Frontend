@@ -34,6 +34,7 @@ public class DummyFillInformation : MonoBehaviour {
 	public void FillInformation(){
 		myInformation = DummyPullDataFromID.PullPersonalInformation ();
 
+
 		name.text = myInformation [1];
 		skillOne.text = myInformation [2];
 		skillTwo.text = myInformation [3];
@@ -41,13 +42,27 @@ public class DummyFillInformation : MonoBehaviour {
 		interestOne.text = myInformation [5];
 		interestTwo.text = myInformation [6];
 		interestThree.text = myInformation [7];
-		rewardPoints.text = "Reward Points: " + myInformation [8];
 		avgFeedback.text = "Average Rating: " + myInformation [9] + " / 5";
 
 		editProfileButton.SetResource (myInformation);
+
+        int points = 0;
+        int.TryParse(myInformation[8], out points);
+        StartCoroutine(CountUp(points));
 	}
 
 	public void SetInformationID(string _myID){
 		fillInformationID = _myID;
 	}
+
+    private IEnumerator CountUp(int points)
+    {
+        float startingOffset = 35f;
+        for (int i = (int) startingOffset; i >= 0; i--)
+        {
+            rewardPoints.text = "Reward Points: " + (points - i);
+            float wait = Mathf.Lerp(0.2f, 0.01f, i / startingOffset);
+            yield return new WaitForSeconds(wait);
+        }
+    }
 }
