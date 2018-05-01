@@ -1611,7 +1611,7 @@ Prefab:
     - target: {fileID: 224349654318128492, guid: 51550fd720d19f84b98e06f3d012f132,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: -1163.28
       objectReference: {fileID: 0}
     - target: {fileID: 224349654318128492, guid: 51550fd720d19f84b98e06f3d012f132,
         type: 2}
@@ -14017,7 +14017,7 @@ Prefab:
     - target: {fileID: 224349654318128492, guid: 51550fd720d19f84b98e06f3d012f132,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: -1326.04
       objectReference: {fileID: 0}
     - target: {fileID: 224494383397537048, guid: 51550fd720d19f84b98e06f3d012f132,
         type: 2}
@@ -17629,7 +17629,7 @@ Prefab:
     - target: {fileID: 224349654318128492, guid: 51550fd720d19f84b98e06f3d012f132,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: -1163.28
       objectReference: {fileID: 0}
     - target: {fileID: 224349654318128492, guid: 51550fd720d19f84b98e06f3d012f132,
         type: 2}
@@ -24774,7 +24774,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 523.90796, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1745525205
@@ -30083,7 +30083,7 @@ ParticleSystemRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 2100000, guid: d8efa10acf75e944e9a9f33049895c38, type: 2}
+  - {fileID: 2100000, guid: 1ed80740296aa1743a88d905969f8881, type: 2}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -30117,7 +30117,7 @@ ParticleSystemRenderer:
   m_Pivot: {x: 0, y: 0, z: 0}
   m_UseCustomVertexStreams: 0
   m_VertexStreams: 00010304
-  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 4300000, guid: 03f45063861ed1b48b34ebd72305672b, type: 3}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
@@ -30828,7 +30828,7 @@ ParticleSystem:
     curve:
       serializedVersion: 2
       minMaxState: 1
-      scalar: 1
+      scalar: 100
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -30942,7 +30942,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-    separateAxes: 1
+    separateAxes: 0
   RotationModule:
     enabled: 1
     x:
