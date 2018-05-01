@@ -5,14 +5,19 @@ using UnityEngine.UI;
 
 public class DialogueChoices : MonoBehaviour {
 
-	[SerializeField]
-	private Text dialogueDesc;
-	[SerializeField]
-	private Text acceptText;
-	[SerializeField]
-	private Text cancelText;
+    [SerializeField]
+    private Text dialogueDesc;
+    [SerializeField]
+    private Text acceptText;
+    [SerializeField]
+    private Text cancelText;
 
-	private ClickForDialogueBox parent;
+    private ClickForDialogueBox parent;
+
+    [SerializeField]
+    private AudioSource acceptSound;
+    [SerializeField]
+    private AudioSource declineSound;
 
 	void Update(){
 		if (Input.GetKeyDown (KeyCode.Escape)) {
@@ -44,9 +49,12 @@ public class DialogueChoices : MonoBehaviour {
 
 	public void ClickAccept(){
 		parent.FlagResponse (DialogueResponses.ACCEPT);
+        AudioManager.GetAudioSource(SoundType.ACCEPT);
+
 	}
 
 	public void ClickCancel(){
 		parent.FlagResponse (DialogueResponses.CANCEL);
-	}
+        AudioManager.GetAudioSource(SoundType.DECLINE);
+    }
 }

@@ -23,8 +23,8 @@ public class Coins : MonoBehaviour
     {
         if (!particles.isPlaying)
         {
-            sounds.Play();
-            Invoke("ThrowParticles", 0.9f);
+            AudioManager.GetAudioSource(SoundType.JACKPOT);
+            Invoke("ThrowParticles", 1f);
         }
     }
 
