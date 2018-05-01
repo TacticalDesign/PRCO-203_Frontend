@@ -10,6 +10,8 @@ public class Coins : MonoBehaviour
     [HideInInspector]
     public bool isRunning = false;
 
+
+
     private void Start()
     {
         particles = GetComponent<ParticleSystem>();
@@ -21,13 +23,17 @@ public class Coins : MonoBehaviour
     {
         if (!particles.isPlaying)
         {
-            particles.Play();
             sounds.Play();
+            Invoke("ThrowParticles", 0.9f);
         }
     }
 
     private void Update()
     {
         isRunning = particles.isPlaying || sounds.isPlaying;
+    }
+
+    private void ThrowParticles() {
+        particles.Play();
     }
 }
