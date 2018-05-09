@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 
 [CustomEditor(typeof(Coins))]
 public class CoinRunner : Editor
 {
+#if UNITY_EDITOR
     public override void OnInspectorGUI()
     {
         DrawDefaultInspector();
@@ -24,4 +27,5 @@ public class CoinRunner : Editor
             myScript.Fire();
         }
     }
+#endif
 }
