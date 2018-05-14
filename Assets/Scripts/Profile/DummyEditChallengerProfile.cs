@@ -13,6 +13,8 @@ public class DummyEditChallengerProfile : MonoBehaviour {
 	private Text phone;
 	[SerializeField]
 	private Text description;
+	[SerializeField]
+	private Image profilePic;
 
 	[SerializeField]
 	private Text[] textInputBoxes;
@@ -31,6 +33,7 @@ public class DummyEditChallengerProfile : MonoBehaviour {
 		email.text = _myData [2];
 		phone.text = _myData [3];
 		description.text = _myData [4];
+		profilePic.sprite = DummyPullDataFromID.GetChallengerProfileImage (_myData [0]);
 	}
 
 	public void SaveChanges(){

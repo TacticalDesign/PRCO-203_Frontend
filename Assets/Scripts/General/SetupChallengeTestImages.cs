@@ -10,6 +10,5 @@ public class SetupChallengeTestImages : MonoBehaviour {
 
 	void Start () {
 		DummyPullDataFromID.SetTestImage (testImage);
-		DummyPullDataFromID.FillChallengeImagesWithTest ();
 	}
 }
