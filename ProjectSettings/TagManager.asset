@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Template
   - MainPanel
+  - MainCanvas
+  - MainBackButton
   layers:
   - Default
   - TransparentFX
