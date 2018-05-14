@@ -9,6 +9,9 @@ public class ChallengeViewFeedbackButton : MonoBehaviour {
 	[SerializeField]
 	private GameObject feedbackPanel;
 
+    [SerializeField]
+    private Coins coins;
+
 	public void SetChallengeID(string _ID){
 		ID = _ID;
 	}
@@ -16,5 +19,6 @@ public class ChallengeViewFeedbackButton : MonoBehaviour {
 	public void DisplayFeedback(){
 		feedbackPanel.SetActive (true);
 		feedbackPanel.GetComponent<ChallengeInfoFeedback> ().FillFeedbackPanel (ID);
+        coins.Fire();
 	}
 }
