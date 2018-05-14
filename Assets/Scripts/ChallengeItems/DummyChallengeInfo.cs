@@ -23,6 +23,8 @@ public class DummyChallengeInfo : MonoBehaviour {
 	private Text challengeDate;
 	[SerializeField]
 	private Text challengeDeadline;
+	[SerializeField]
+	private Image challengeIcon;
 
 	[SerializeField]
 	private ClickForPopupPage listener;
@@ -43,6 +45,8 @@ public class DummyChallengeInfo : MonoBehaviour {
 		challengeDate.text = _resource [8];
 		challengeDeadline.text = _resource [9];
 		challengerName.text = _resource [10];
+
+		challengeIcon.sprite = DummyPullDataFromID.GetChallengeImage (_resource [0]);
 
 		listener.SetResource (_resource);
 		if (_viewChallengePageType == AccountType.Youth) {

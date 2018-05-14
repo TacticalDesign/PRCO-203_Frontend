@@ -21,6 +21,8 @@ public class DummyEditChallenge : MonoBehaviour {
 	private Text challengeDeadline;
 	[SerializeField]
 	private Text description;
+	[SerializeField]
+	private Image challengePic;
 
 	[SerializeField]
 	private InputField newChallengeTitle;
@@ -58,6 +60,7 @@ public class DummyEditChallenge : MonoBehaviour {
 		challengeDate.text = _resource[8];
 		challengeDeadline.text = _resource[9];
 		description.text = _resource[7];
+		challengePic.sprite = DummyPullDataFromID.GetChallengeImage (_resource [0]);
 	}
 
 	public void SaveData(){
