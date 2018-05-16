@@ -8342,10 +8342,12 @@ MonoBehaviour:
   - {fileID: 67043184}
   - {fileID: 1687856651}
   - {fileID: 525301639}
+  youthMainPageButton: {fileID: 1601498857}
   challengerNavbar: {fileID: 62794618}
   challengerMainPanels:
   - {fileID: 1604183685}
   - {fileID: 1862264665}
+  challengerMainPageButton: {fileID: 1612096088}
   adminNavbar: {fileID: 1994676372}
   adminMainPanels:
   - {fileID: 2042212411}

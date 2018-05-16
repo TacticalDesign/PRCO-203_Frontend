@@ -50,6 +50,7 @@ public class LoginScreen : MonoBehaviour
     {
         mainCanvas.SetAccountType(AccountType.Youth);
         Login();
+		mainCanvas.YouthLogin ();
     }
 
     /// <summary>
@@ -60,6 +61,7 @@ public class LoginScreen : MonoBehaviour
     {
         mainCanvas.SetAccountType(AccountType.Challenger);
         Login();
+		mainCanvas.ChallengerLogin ();
     }
 
     /// <summary>

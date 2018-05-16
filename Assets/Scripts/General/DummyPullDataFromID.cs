@@ -335,12 +335,12 @@ public static class DummyPullDataFromID {
 	private static string[] personalInformation = new string[]{
 		"jm12345",
 		"Jake Morgan",
-		"'Pro-Grammin",
-		"Creeaytuve Raitin",
-		"Engrish",
-		"Vudio Geims",
-		"Su'er 'Ero's",
-		"Moosick",
+		"Programming",
+		"Creative Writing",
+		"Photography",
+		"Video Games",
+		"Music",
+		"Computer Hardware",
 		"2500",
 		"4"
 	};
