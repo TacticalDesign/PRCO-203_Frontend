@@ -14,13 +14,17 @@ public class MainCanvas : MonoBehaviour
     GameObject youthNavbar;
     [SerializeField]
     RectTransform[] youthMainPanels;
+	[SerializeField]
+	Button youthMainPageButton;
 
 
     [Header("Challenger Accounts")]
     [SerializeField]
     GameObject challengerNavbar;
     [SerializeField]
-    RectTransform[] challengerMainPanels;
+	RectTransform[] challengerMainPanels;
+	[SerializeField]
+	Button challengerMainPageButton;
 
     [Header("Admin Accounts")]
     [SerializeField]
@@ -65,6 +69,14 @@ public class MainCanvas : MonoBehaviour
     {
         throw new Exception("Not developed yet!");
     }
+
+	public void YouthLogin(){
+		youthMainPageButton.onClick.Invoke ();
+	}
+
+	public void ChallengerLogin(){
+		challengerMainPageButton.onClick.Invoke ();
+	}
 
     /// <summary>
     /// Lerps a string between two values
