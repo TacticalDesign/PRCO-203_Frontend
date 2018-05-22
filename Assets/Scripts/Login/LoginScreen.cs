@@ -118,7 +118,7 @@ public class LoginScreen : MonoBehaviour
 				challLog.SetChallengerID (username.text.ToLower ());
 			}
 			break;
-		case "jm12345":
+		case "yp1":
 			if (password.text == "password") {
 				YouthLogin ();
 				youthLog.SendID (username.text.ToLower ());
