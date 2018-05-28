@@ -9,10 +9,20 @@ public class OnClickHandler : MonoBehaviour, IPointerDownHandler, IPointerClickH
 	private ScrollRect parent;
 
 	private ClickForPopupPage toBeTriggered;
+	private FillRewardItems toBeTriggeredReward;
+
 	private bool canClick = true;
 
 	void Start(){
+		try{
 		toBeTriggered = gameObject.GetComponent<ClickForPopupPage> ();
+		} catch (UnityException ex){
+		}
+
+		try{
+			toBeTriggeredReward = gameObject.GetComponent<FillRewardItems>();
+		} catch (UnityException ex){
+		}
 	}
 
 	public void OnPointerDown (PointerEventData ev){
@@ -23,7 +33,10 @@ public class OnClickHandler : MonoBehaviour, IPointerDownHandler, IPointerClickH
 
 	public void OnPointerClick (PointerEventData ev){
 		if (canClick) {
-			toBeTriggered.PopupNewPage ();
+			if (toBeTriggered != null)
+				toBeTriggered.PopupNewPage ();
+			else if (toBeTriggeredReward != null)
+				toBeTriggeredReward.CanRedeem ();
 		}
 		canClick = true;
 	}

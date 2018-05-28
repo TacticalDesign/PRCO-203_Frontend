@@ -6,7 +6,7 @@ public class MainBackButton : MonoBehaviour {
 	
 	private GameObject activeScreen = null;
 
-	public void backToPrevPage(){
+	public void BackToPrevPage(){
 		activeScreen.GetComponent<OnPopupPageOpen>().OnExit ();
 
 		try {
@@ -19,6 +19,16 @@ public class MainBackButton : MonoBehaviour {
 
 	public void SetActiveScreen(GameObject _screen){
 		activeScreen = _screen;
-		gameObject.SetActive (true);
+		if (_screen == null) {
+			gameObject.SetActive (false);
+		} else {
+			gameObject.SetActive (true);
+		}
+	}
+
+	void Update(){
+		if (Input.GetKeyDown (KeyCode.Escape)) {
+			BackToPrevPage ();
+		}
 	}
 }

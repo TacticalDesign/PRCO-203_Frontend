@@ -14,13 +14,17 @@ public class MainCanvas : MonoBehaviour
     GameObject youthNavbar;
     [SerializeField]
     RectTransform[] youthMainPanels;
+	[SerializeField]
+	Button youthMainPageButton;
 
 
     [Header("Challenger Accounts")]
     [SerializeField]
     GameObject challengerNavbar;
     [SerializeField]
-    RectTransform[] challengerMainPanels;
+	RectTransform[] challengerMainPanels;
+	[SerializeField]
+	Button challengerMainPageButton;
 
     [Header("Admin Accounts")]
     [SerializeField]
@@ -50,7 +54,10 @@ public class MainCanvas : MonoBehaviour
     [SerializeField]
     float secondryPageHidingInterval;
 
-    private void Start()
+	/// <summary>
+	/// On starting this instance, enables the Login Screen, to ensure that even if the screen has been disabled in the editor, it will still show.
+	/// </summary>
+    void Start()
     {
         loginScreen.SetActive(true);
     }
@@ -62,14 +69,30 @@ public class MainCanvas : MonoBehaviour
     {
         throw new Exception("Not developed yet!");
     }
-    
+
+	public void YouthLogin(){
+		youthMainPageButton.onClick.Invoke ();
+	}
+
+	public void ChallengerLogin(){
+		challengerMainPageButton.onClick.Invoke ();
+	}
+
     /// <summary>
-    /// Sets the title label on the title bar
+    /// Lerps a string between two values
     /// </summary>
-    /// <param name="newTitle">The new title to show</param>
-    public void SetTitle(string newTitle)
+    /// <param name="oldText">The old text to no longer show</param>
+    /// <param name="newText">The new text to now show</param>
+    /// <param name="t">The percentage value (0-1) to lerp to</param>
+    public string LerpString(string oldText, string newText, float t)
     {
-        title.text = newTitle;
+        t = Mathf.Clamp01(t);
+
+        int oldLength = (int)(oldText.Length - (oldText.Length * t));
+        int newLength = (int)(newText.Length - (newText.Length * t));
+
+        string result = oldText.Substring(0, oldLength) + " " + newText.Substring(newLength);
+        return result;
     }
 
     /// <summary>
@@ -137,11 +160,15 @@ public class MainCanvas : MonoBehaviour
 
         float timeStep = transitionSmoothness;//The length of coroutine frames in seconds
         float duration = transitionDuration;//Duration of coroutine in seconds
+
+        string oldTitleText = title.text;
+
         while (timeElapsed < duration)
         {
             if (secondryPanelsHidden < secondryPages.Length && timeElapsed > secondryPanelsHidden * secondryPageHidingInterval)
             {
-                secondryPages[secondryPanelsHidden].SetInteger("Show", 0);
+                //secondryPages[secondryPanelsHidden].SetInteger("Show", 0);
+				secondryPages[secondryPanelsHidden].GetComponent<OnPopupPageOpen>().ForceExit();
                 secondryPanelsHidden++;
             }
 
@@ -151,6 +178,10 @@ public class MainCanvas : MonoBehaviour
                 //... update their anchor X positions
                 SetHorizontalAnchor(ref panels[i], timeStep, distance, duration);
             }
+
+            //Then set the new title
+            title.text = LerpString(oldTitleText, titleMessage, timeElapsed / duration);
+
             timeElapsed += timeStep;
             yield return new WaitForSecondsRealtime(timeStep);
         }
@@ -162,8 +193,7 @@ public class MainCanvas : MonoBehaviour
             panels[i].anchorMax = new Vector2(Mathf.RoundToInt(panels[i].anchorMax.x), 0.88f);
         }
 
-        //Then set the new title
-        SetTitle(titleMessage);
+        title.text = titleMessage;
     }
 
     /// <summary>
